@@ -1,0 +1,5 @@
+tth
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/tth_bb_output_1.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/tth_bb_output_2.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/tth_nonbb_output_1.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/tth_nonbb_output_2.root

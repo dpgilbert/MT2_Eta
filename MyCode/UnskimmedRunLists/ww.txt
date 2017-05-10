@@ -1,0 +1,2 @@
+ww
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/ww_2l2nu_powheg_output_1.root

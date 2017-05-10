@@ -1,0 +1,3 @@
+T2cc
+/nfs-6/userdata/mt2/V00-08-18_mc_skim_base_mt2gt200_ZinvV6_JECs/T2cc_1.root
+/nfs-6/userdata/mt2/V00-08-18_mc_skim_base_mt2gt200_ZinvV6_JECs/T2cc_2.root

@@ -1,0 +1,6 @@
+ttz
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/ttz_mg_lo_output_1.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/ttz_mg_lo_output_2.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/ttz_mg_lo_output_3.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/ttz_mg_lo_output_4.root
+/hadoop/cms/store/user/olivito/AutoTwopler_babies/merged/MT2/V00-08-18_mc/output/ttz_mg_lo_output_5.root
