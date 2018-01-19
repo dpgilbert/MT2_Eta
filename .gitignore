@@ -12,3 +12,7 @@
 *cards*
 *.pdf
 MyCode/*
+*.eps
+*.png
+*nohup*
+*.txt
