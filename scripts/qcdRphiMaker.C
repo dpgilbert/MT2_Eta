@@ -18,7 +18,7 @@
 
 using namespace std;
 
-const bool verbose = false;
+const bool verbose = true;
 
 //_______________________________________________________________________________
 void ReplaceString(std::string& subject, const std::string& search, const std::string& replace) {
@@ -75,10 +75,10 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
     TH1D* h_ht_HI = (TH1D*) f_data->Get(directory+"/h_ht_HI");
     int ht_LOW = h_ht_LOW->GetBinContent(1);
     int ht_HI = h_ht_HI->GetBinContent(1);
-
     std::cout << dirs.at(idir) << std::endl;
+
     if (not isalpha(dirs.at(idir)[dirs.at(idir).length()-1]) and ht_LOW == 1500) is_ssr_dir = true;
-    
+
     TH1D* h_nbjets_LOW = (TH1D*) f_data->Get(directory+"/h_nbjets_LOW");
     TH1D* h_nbjets_HI = (TH1D*) f_data->Get(directory+"/h_nbjets_HI");
     int nbjets_LOW = h_nbjets_LOW->GetBinContent(1);
@@ -93,6 +93,8 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
     int njets_HI_mod = njets_HI;
     if(nbjets_HI != -1) nbjets_HI_mod--;
     if(njets_HI != -1) njets_HI_mod--;
+
+    std::cout << "Got hists from file" << endl;
 
     if (njets_LOW == 1 && njets_HI_mod == njets_LOW && nbjets_LOW == 0 && nbjets_HI_mod == nbjets_LOW)
     {
@@ -116,15 +118,24 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
     ReplaceString(jet_str, "-1", "Inf");
     ReplaceString(bjet_str, "-1", "Inf");
 
-    std::string channel = ht_str + "_" + jet_str + "_" + bjet_str;
-    std::string channel_njonly = std::string("HT250toInf_") + jet_str + "_b0toInf";
+    std::string eta_reg = "";
+    // Only do once for each monojet region, and don't modify behavior
+    if (njets_LOW > 1){      
+      if (directory.Contains("cent")) eta_reg = "cent";
+      else if (directory.Contains("forw")) eta_reg = "forw";
+    }
+
+    std::string channel_trunc = ht_str + "_" + jet_str + "_" + bjet_str;
+    std::string channel_full = channel_trunc + eta_reg;
+    
+    std::string channel_njonly = std::string("HT250toInf_") + jet_str + eta_reg + "_b0toInf";
     // special case for j2to6_b3toInf: use j4to6
-    if (nbjets_LOW == 3 && njets_LOW == 2) channel_njonly = "HT250toInf_j4to6_b0toInf";
-    if (njets_LOW == 4 && njets_HI == -1) channel_njonly = "HT250toInf_j4to6_b0toInf";
-    std::string channel_htonly = ht_str + "_j2toInf_b0toInf";
-
-    if (verbose) std::cout << "channel is: " << channel << std::endl;
-
+    if (nbjets_LOW == 3 && njets_LOW == 2) channel_njonly = "HT250toInf_j4to6" + eta_reg + "_b0toInf";
+    if (njets_LOW == 4 && njets_HI == -1) channel_njonly = "HT250toInf_j4to6" + eta_reg + "_b0toInf";
+    std::string channel_htonly = ht_str + eta_reg + "_j2toInf_b0toInf";
+    
+    if (verbose) std::cout << "channel is: " << channel_full << std::endl;
+    
     // Make directory and plot(s) in the output file
     TDirectory* dir = 0;
     dir = (TDirectory*)outfile->Get(directory.Data());
@@ -132,10 +143,10 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
       dir = outfile->mkdir(directory.Data());
     } 
     dir->cd();
-
+    
     // special case for monojet
     if (njets_LOW == 1) {
-
+      
       // clone original to become prediction
       TH1D* h_qcd_sr_pred = 0;
       if(h_qcd_cr_data) {
@@ -148,9 +159,9 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
       // for gamma function
       TH1D* CRstats = (TH1D*) h_qcd_sr_pred->Clone("h_mt2binsCRyield");
       TH1D* alphaHist = (TH1D*) h_qcd_sr_pred->Clone("h_mt2binsAlpha");
-
+      
       // look up r / purity factor ( = alpha ) from ETH input file
-      TH1D* h_purity = (TH1D*) f_qcd_monojet->Get(Form("monojet_r/%s/yield_monojet_r_%s",channel.c_str(),channel.c_str()));
+      TH1D* h_purity = (TH1D*) f_qcd_monojet->Get(Form("monojet_r/%s/yield_monojet_r_%s",channel_full.c_str(),channel_trunc.c_str()));
       
       float lastPurityValue = 0.;
       float lastPurityError = 0.;
@@ -163,7 +174,7 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
 	// HACK: for now, set relative error to 50%.  Next version of input should have error bars..
 	purity_err = 0.5;
 	if (verbose) std::cout << " purity: " << purity << " +/- " << purity_err << std::endl;
-
+	
 	// if purity is 0, use last nonzero bin
 	if (purity > 0.) {
 	  lastPurityValue = purity;
@@ -172,32 +183,32 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
 	  purity = lastPurityValue;
 	  purity_err = lastPurityError;
 	}	  
-
+	
 	float pred = h_qcd_sr_pred->GetBinContent(ibin);
 	pred *= purity;
 	// convert back to absolute err
 	float pred_err = pred * purity_err;
 	if (verbose) std::cout << " pred: " << pred << " +/- " << pred_err << " (abs err)" << std::endl;
-
+	
 	h_qcd_sr_pred->SetBinContent(ibin,pred);
 	h_qcd_sr_pred->SetBinError(ibin,pred_err);
 	
 	alphaHist->SetBinContent(ibin,purity);
 	alphaHist->SetBinError(ibin,purity*purity_err);
       } // loop on mt2 (jet1pt) bins
-
+      
       dir->cd();
       h_qcd_sr_pred->Write();
       CRstats->Write();
       alphaHist->Write();
       
       if (verbose) std::cout << "done for monojet bin " << std::endl;
-
+      
     } // monojet
     
-    // multijet regions
+      // multijet regions
     else if (njets_LOW >= 2) {
-
+      
       // clone original to become prediction plot
       TH1D* h_qcd_sr_pred = 0;
       if(h_qcd_cr_data) {
@@ -213,25 +224,31 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
       TH1D* FJRBsystHist = (TH1D*) h_qcd_sr_pred->Clone("h_mt2binsFJRBsyst");
       TH1D* FitStatHist = (TH1D*) h_qcd_sr_pred->Clone("h_mt2binsFitStat");
       TH1D* FitSystHist = (TH1D*) h_qcd_sr_pred->Clone("h_mt2binsFitSyst");
-
+      
       if (verbose) std::cout << "cloned data hist " << std::endl;
       
       // lookup transfer factors from ETH input file
-      TH1D* h_reff = (TH1D*) f_qcd->Get(Form("r_effective/%s/yield_r_effective_%s",channel.c_str(),channel.c_str()));
-      TH1D* h_fitsyst = (TH1D*) f_qcd->Get(Form("r_systFit/%s/yield_r_systFit_%s",channel.c_str(),channel.c_str()));
+      
+      std::cout << Form("r_effective/%s/yield_r_effective_%s",channel_full.c_str(),channel_trunc.c_str()) << std::endl;
+      
+      TH1D* h_reff = (TH1D*) f_qcd->Get(Form("r_effective/%s/yield_r_effective_%s",channel_full.c_str(),channel_trunc.c_str()));
+      TH1D* h_fitsyst = (TH1D*) f_qcd->Get(Form("r_systFit/%s/yield_r_systFit_%s",channel_full.c_str(),channel_trunc.c_str()));
       string f_jets_dir = "f_jets_data";
       // if (ht_LOW == 200) f_jets_dir = "f_jets_data_noPS";
+      
+      std::cout << Form("%s/%s/yield_%s_%s",f_jets_dir.c_str(),channel_htonly.c_str(),f_jets_dir.c_str(),channel_htonly.c_str()) << std::endl;
+      
       TH1D* h_fjets = (TH1D*) f_qcd->Get(Form("%s/%s/yield_%s_%s",f_jets_dir.c_str(),channel_htonly.c_str(),f_jets_dir.c_str(),channel_htonly.c_str()));
       TH1D* h_rb = (TH1D*) f_qcd->Get(Form("r_hat_data/%s/yield_r_hat_data_%s",channel_njonly.c_str(),channel_njonly.c_str()));
-      TH1D* h_purity = (TH1D*) f_qcd->Get(Form("qcdPurity/%s/yield_qcdPurity_%s",channel.c_str(),channel.c_str()));
-
+      TH1D* h_purity = (TH1D*) f_qcd->Get(Form("qcdPurity/%s/yield_qcdPurity_%s",channel_full.c_str(),channel_trunc.c_str()));
+      
       float fjets = h_fjets->GetBinContent( h_fjets->FindBin(njets_LOW) );
       float fjets_err = h_fjets->GetBinError( h_fjets->FindBin(njets_LOW) );
       float rb = h_rb->GetBinContent( h_rb->FindBin(nbjets_LOW) );
       float rb_err = h_rb->GetBinError( h_rb->FindBin(nbjets_LOW) );
-
+      
       if (verbose) std::cout << "got fjets and rb " << std::endl;
-	
+      
       // have to combine bins for j2to6, b3toInf
       if (nbjets_LOW == 3 && njets_LOW == 2) {
 	if (verbose) std::cout << "need to get extra bin for fjets " << std::endl;
@@ -241,12 +258,12 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
 	fjets_err += h_fjets->GetBinError( otherFJetsBin )*h_fjets->GetBinError( otherFJetsBin );
 	fjets_err  = sqrt(fjets_err);
       }
-
+      
       // convert to relative error
       fjets_err = fjets > 0. ? fjets_err/fjets : 0.;
       rb_err = rb > 0. ? rb_err/rb : 0.;
       float fjrb_err = sqrt(fjets_err*fjets_err + rb_err*rb_err);
-
+      
       if (verbose) std::cout << " fjets: " << fjets << " +/- " << fjets_err << std::endl;
       if (verbose) std::cout << " rb: " << rb << " +/- " << rb_err << std::endl;
       
@@ -274,13 +291,13 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
 	}
 	if (verbose) std::cout << " alpha: " << alpha << " +/- " << alpha_err << std::endl;
 	if (verbose) std::cout << " fjrb_err: " << fjrb_err  << std::endl;
-
+	
 	float pred = h_qcd_sr_pred->GetBinContent(ibin);
 	pred *= alpha;
 	// convert back to absolute err
 	float pred_err = pred * alpha_err;
 	if (verbose) std::cout << " pred: " << pred << " +/- " << pred_err << " (abs err)" << std::endl;
-
+	
 	h_qcd_sr_pred->SetBinContent(ibin,pred);
 	h_qcd_sr_pred->SetBinError(ibin,pred_err); // not used later
 	
@@ -291,7 +308,7 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
 	FitStatHist->SetBinContent(ibin,reff_err); // relative stat err from fit
 	FitSystHist->SetBinContent(ibin,fit_syst); // relative syst err from fit
       } // loop on mt2 bins
-
+      
       dir->cd();
       h_qcd_sr_pred->Write();
       CRstats->Write();
@@ -299,18 +316,17 @@ void makeQCDFromCRs( TFile* f_data , TFile* f_qcd , TFile* f_qcd_monojet , vecto
       FJRBsystHist->Write();
       FitStatHist->Write();
       FitSystHist->Write();
-
+      
       if (verbose) std::cout << "done for multijet bin " << std::endl;
-
+      
     } // multijets
-
-    delete mt2bins;
     
+    delete mt2bins;
   } // loop over signal regions
-
+  
   outfile->Close();
   delete outfile;
-
+  
   return;
 }
 
@@ -341,6 +357,9 @@ void qcdRphiMaker(string input_dir = "/home/users/jgran/temp/update/MT2Analysis/
   std::string skip = "srbase";
   while ((k = (TKey *)it())) {
     if (strncmp (k->GetTitle(), skip.c_str(), skip.length()) == 0) continue;
+    const char * ktitle = k->GetTitle(); // INSERTED
+    const char end = ktitle[strlen(ktitle)-1]; // INSERTED
+    if (end >= '0' && end <= '9') continue; // INSERTED TO AVOID DOING SUPER SIGNAL REGIONS
     if (strncmp (k->GetTitle(), keep.c_str(), keep.length()) == 0) {//it is a signal region
       std::string sr_string = k->GetTitle();
       sr_string.erase(0, 2);//remove "sr" from front of string

@@ -6,7 +6,7 @@ OBJECTS=$(SOURCES:.cc=.o)
 
 LIB=libMyLooper.so
 
-EXE = MyLooper
+EXE = MyLooper.exe
 
 $(LIB): $(OBJECTS)
 	$(LD) $(LDFLAGS) $(SOFLAGS) $(OBJECTS) $(ROOTLIBS) -o $@

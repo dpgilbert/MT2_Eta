@@ -9,3 +9,6 @@
 *.pyc
 *.cmd
 *.display.screen
+*cards*
+*.pdf
+MyCode/*

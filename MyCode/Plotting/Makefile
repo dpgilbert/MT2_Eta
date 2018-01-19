@@ -6,7 +6,7 @@ OBJECTS=$(SOURCES:.cc=.o)
 
 LIB=libPlotting.so
 
-EXE = Plotter
+EXE = Plotter.exe
 
 $(LIB): $(OBJECTS)
 	$(LD) $(LDFLAGS) $(SOFLAGS) $(OBJECTS) $(ROOTLIBS) -o $@

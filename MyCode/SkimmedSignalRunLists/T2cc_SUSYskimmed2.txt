@@ -1,2 +1,0 @@
-T2cc2
-T2cc_SUSYskimmed2.root

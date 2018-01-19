@@ -214,6 +214,16 @@ public :
    Float_t         isoTrack_dz[50];   //[nisoTrack]
    Int_t           isoTrack_pdgId[50];   //[nisoTrack]
    Int_t           isoTrack_mcMatchId[50];   //[nisoTrack]
+   Int_t           nAllTrack;
+   Float_t         AllTrack_pt[50];   //[nAllTrack]
+   Float_t         AllTrack_eta[50];   //[nAllTrack]
+   Float_t         AllTrack_phi[50];   //[nAllTrack]
+   Float_t         AllTrack_mass[50];   //[nAllTrack]
+   Float_t         AllTrack_absIso[50];   //[nAllTrack]
+   Float_t         AllTrack_relIsoAn04[50];   //[nAllTrack]
+   Float_t         AllTrack_dz[50];   //[nAllTrack]
+   Int_t           AllTrack_pdgId[50];   //[nAllTrack]
+   Int_t           AllTrack_mcMatchId[50];   //[nAllTrack]
    Int_t           nPFLep5LowMT;
    Int_t           nPFHad10LowMT;
    Int_t           ntau;

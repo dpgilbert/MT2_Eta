@@ -21,6 +21,11 @@ namespace mt2
   std::vector<SR> getSignalRegionsICHEP();
   std::vector<SR> getSignalRegionsMonojet2016();
   std::vector<SR> getSignalRegions2016();
+  
+  std::vector<SR> getSignalRegions2016vs2017();
+  std::vector<SR> getSignalRegionsMonojet2016vs2017();
+
+  std::vector<SR> getSignalRegions2016Edit();
 
 } // namespace mt2
 

@@ -46,13 +46,17 @@ else
     EXE=condorExecutable.sh
 fi
 
+# outdated settings
+#universe=grid
+#Grid_Resource=condor cmssubmit-r1.t2.ucsd.edu glidein-collector.t2.ucsd.edu
+
 echo "
-universe=grid
-Grid_Resource=condor cmssubmit-r1.t2.ucsd.edu glidein-collector.t2.ucsd.edu
+universe=vanilla
 when_to_transfer_output = ON_EXIT
 transfer_input_files=${INPUT}
 transfer_output_files = /dev/null
 +DESIRED_Sites=\"${SITE}\"
++remote_DESIRED_Sites=\"T2_US_UCSD\"
 +Owner = undefined
 log=${LOG}
 output=${OUT}

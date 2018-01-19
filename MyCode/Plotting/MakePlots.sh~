@@ -1,5 +1,0 @@
-#!/bin/bash
-
-nohup nice -n 10 ./Plotter >& plot_log.txt
-
-

@@ -1346,7 +1346,20 @@ void babyMaker::ScanChain(TChain* chain, std::string baby_name, bool isFastsim, 
       vector<int>  vec_isoTrack_pdgId;
       vector<int>  vec_isoTrack_mcMatchId;
 
+      //ALL TRACK
+      std::vector<std::pair<int, float> > pt_all_ordering;
+      vector<float>vec_AllTrack_pt;
+      vector<float>vec_AllTrack_eta;
+      vector<float>vec_AllTrack_phi;
+      vector<float>vec_AllTrack_mass;
+      vector<float>vec_AllTrack_absIso;
+      vector<float>vec_AllTrack_relIsoAn04;
+      vector<float>vec_AllTrack_dz;
+      vector<int>  vec_AllTrack_pdgId;
+      vector<int>  vec_AllTrack_mcMatchId;
+
       nisoTrack = 0;
+      nAllTrack = 0;
       nPFLep5LowMT = 0;
       nPFHad10LowMT = 0;
       nPFCHCand3 = 0;
@@ -1357,16 +1370,34 @@ void babyMaker::ScanChain(TChain* chain, std::string baby_name, bool isFastsim, 
         if(cms3.pfcands_fromPV().at(ipf) <= 1) continue;
 
         float cand_pt = cms3.pfcands_p4().at(ipf).pt();
+	pt_all_ordering.push_back(std::pair<int,float>(nAllTrack,cand_pt));
+	nAllTrack++;
+	float absiso  = TrackIso(ipf, 0.3, 0.0, true, false);
+	float mt = MT(cand_pt,cms3.pfcands_p4().at(ipf).phi(),met_pt,met_phi);
+        int pdgId = abs(cms3.pfcands_particleId().at(ipf));
+        float an04 = PFCandRelIsoAn04(ipf);
+	float cand_eta = cms3.pfcands_p4().at(ipf).eta();
+	float cand_phi = cms3.pfcands_p4().at(ipf).phi();
+	float cand_dz = cms3.pfcands_dz().at(ipf);
+	float cand_mass = cms3.pfcands_mass().at(ipf);
+
+	vec_AllTrack_pt.push_back(cand_pt);
+	vec_AllTrack_absIso.push_back(absiso);	
+	vec_AllTrack_pdgId.push_back(pdgId);
+        vec_AllTrack_eta.push_back   ( cand_eta );
+        vec_AllTrack_phi.push_back   ( cand_phi  );
+        vec_AllTrack_mass.push_back  ( cand_mass      );
+        vec_AllTrack_absIso.push_back( absiso                           );
+        vec_AllTrack_relIsoAn04.push_back( an04                         );
+        vec_AllTrack_dz.push_back    ( cand_dz        );
+        vec_AllTrack_pdgId.push_back ( pdgId );
+        vec_AllTrack_mcMatchId.push_back ( 0 );
+
         if(cand_pt > 3) ++nPFCHCand3;
         if(cand_pt < 5) continue;
 
-        float absiso  = TrackIso(ipf, 0.3, 0.0, true, false);
         if(applyLeptonIso && absiso >= min(0.2*cand_pt, 8.0)) continue;
-
-        float mt = MT(cand_pt,cms3.pfcands_p4().at(ipf).phi(),met_pt,met_phi);
-        int pdgId = abs(cms3.pfcands_particleId().at(ipf));
-        float an04 = PFCandRelIsoAn04(ipf);
-
+        
         if ((cand_pt > 5.) && (pdgId == 11 || pdgId == 13) && (absiso/cand_pt < 0.2) && (mt < 100.)) {
           ++nPFLep5LowMT;
 
@@ -1413,13 +1444,13 @@ void babyMaker::ScanChain(TChain* chain, std::string baby_name, bool isFastsim, 
         pt_ordering.push_back(std::pair<int,float>(nisoTrack,cand_pt));
 
         vec_isoTrack_pt.push_back    ( cand_pt                          );
-        vec_isoTrack_eta.push_back   ( cms3.pfcands_p4().at(ipf).eta()  );
-        vec_isoTrack_phi.push_back   ( cms3.pfcands_p4().at(ipf).phi()  );
-        vec_isoTrack_mass.push_back  ( cms3.pfcands_mass().at(ipf)      );
+        vec_isoTrack_eta.push_back   ( cand_eta  );
+        vec_isoTrack_phi.push_back   ( cand_phi  );
+        vec_isoTrack_mass.push_back  ( cand_mass      );
         vec_isoTrack_absIso.push_back( absiso                           );
         vec_isoTrack_relIsoAn04.push_back( an04                         );
-        vec_isoTrack_dz.push_back    ( cms3.pfcands_dz().at(ipf)        );
-        vec_isoTrack_pdgId.push_back ( cms3.pfcands_particleId().at(ipf));
+        vec_isoTrack_dz.push_back    ( cand_dz        );
+        vec_isoTrack_pdgId.push_back ( pdgId );
         vec_isoTrack_mcMatchId.push_back ( 0 );
 
         nisoTrack++;
@@ -1445,6 +1476,25 @@ void babyMaker::ScanChain(TChain* chain, std::string baby_name, bool isFastsim, 
         isoTrack_pdgId[i]  = vec_isoTrack_pdgId.at(it->first);
         isoTrack_mcMatchId[i]  = vec_isoTrack_mcMatchId.at(it->first);
         i++;
+      }
+
+      int all_track_i = 0;
+      std::sort(pt_all_ordering.begin(), pt_all_ordering.end(), sortByValue);
+      for (std::vector<std::pair<int, float> >::iterator it = pt_all_ordering.begin(); it!= pt_all_ordering.end(); ++it) {
+	if (all_track_i > max_AllTrack) {
+	  std::cout << "WARNING: attempted to fill more than " << max_AllTrack << " tracks" << std::endl;
+	  break;
+	}
+        AllTrack_pt[i]     = vec_AllTrack_pt.at(it->first);
+        AllTrack_eta[i]    = vec_AllTrack_eta.at(it->first);
+        AllTrack_phi[i]    = vec_AllTrack_phi.at(it->first);
+        AllTrack_mass[i]   = vec_AllTrack_mass.at(it->first);
+        AllTrack_absIso[i] = vec_AllTrack_absIso.at(it->first);
+        AllTrack_relIsoAn04[i] = vec_AllTrack_relIsoAn04.at(it->first);
+        AllTrack_dz[i]     = vec_AllTrack_dz.at(it->first);
+        AllTrack_pdgId[i]  = vec_AllTrack_pdgId.at(it->first);
+        AllTrack_mcMatchId[i]  = vec_AllTrack_mcMatchId.at(it->first);
+	all_track_i++;
       }
 
       //--
@@ -3041,6 +3091,16 @@ void babyMaker::ScanChain(TChain* chain, std::string baby_name, bool isFastsim, 
     BabyTree_->Branch("isoTrack_dz", isoTrack_dz, "isoTrack_dz[nisoTrack]/F" );
     BabyTree_->Branch("isoTrack_pdgId", isoTrack_pdgId, "isoTrack_pdgId[nisoTrack]/I" );
     BabyTree_->Branch("isoTrack_mcMatchId", isoTrack_mcMatchId, "isoTrack_mcMatchId[nisoTrack]/I" );
+    BabyTree_->Branch("nAllTrack", &nAllTrack, "nAllTrack/I" );
+    BabyTree_->Branch("AllTrack_pt", AllTrack_pt, "AllTrack_pt[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_eta", AllTrack_eta, "AllTrack_eta[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_phi", AllTrack_phi, "AllTrack_phi[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_mass", AllTrack_mass, "AllTrack_mass[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_absIso", AllTrack_absIso, "AllTrack_absIso[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_relIsoAn04", AllTrack_relIsoAn04, "AllTrack_relIsoAn04[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_dz", AllTrack_dz, "AllTrack_dz[nAllTrack]/F" );
+    BabyTree_->Branch("AllTrack_pdgId", AllTrack_pdgId, "AllTrack_pdgId[nAllTrack]/I" );
+    BabyTree_->Branch("AllTrack_mcMatchId", AllTrack_mcMatchId, "AllTrack_mcMatchId[nAllTrack]/I" );
     BabyTree_->Branch("nhighPtPFcands", &nhighPtPFcands, "nhighPtPFcands/I" );
     BabyTree_->Branch("highPtPFcands_pt", highPtPFcands_pt, "highPtPFcands_pt[nhighPtPFcands]/F" );
     BabyTree_->Branch("highPtPFcands_eta", highPtPFcands_eta, "highPtPFcands_eta[nhighPtPFcands]/F" );
@@ -3453,6 +3513,7 @@ void babyMaker::ScanChain(TChain* chain, std::string baby_name, bool isFastsim, 
     HLT_DiCentralPFJet55_PFMET110 = -999;
     nlep = -999;
     nisoTrack = -999;
+    nAllTrack = -999;
     nhighPtPFcands = -999;
     nPFLep5LowMT = -999;
     nPFHad10LowMT = -999;

@@ -131,6 +131,9 @@ bool ignoreScale1fb = false;
 // print qcd CR event list
 bool print_qcd_event_list = false;
 
+//include pseudojet1 eta binning
+bool include_eta_binning = false;
+
 // load rphi fits to perform r_effective calculation.
 bool doReffCalculation = true;
 string rphi_file_name = "/home/users/fgolf/mt2/devel/MT2Analysis/scripts/qcdEstimate/output/full2016/qcdHistos.root";
@@ -152,7 +155,12 @@ MT2Looper::~MT2Looper(){
 void MT2Looper::SetSignalRegions(){
   //SRVec =  getSignalRegionsZurich_jetpt30(); //same as getSignalRegionsZurich(), but with j1pt and j2pt cuts changed to 30 GeV
   //  SRVec =  getSignalRegionsJamboree(); //adds HT 200-450 regions
-  SRVec =  getSignalRegions2016(); //adds 2 bins at UH HT, for 3b
+  if (! include_eta_binning) SRVec =  getSignalRegions2016(); //adds 2 bins at UH HT, for 3b
+  else 
+    {
+      SRVec =  getSignalRegions2016Edit(); // adds eta binning
+      cout << "Loaded Signal Regions" << endl;
+    }
   SRVecMonojet = getSignalRegionsMonojet2016(); // first pass of monojet regions
 
   //store histograms with cut values for all variables
@@ -1550,6 +1558,10 @@ void MT2Looper::fillHistosSignalRegion(const std::string& prefix, const std::str
   values["met"]         = met_pt_;
   //values["passesHtMet"] = ( (ht_ > 250. && met_pt_ > 250.) || (ht_ > 1000. && met_pt_ > 30.) );
 
+  if (include_eta_binning) 
+    {
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+    }
 
   for(unsigned int srN = 0; srN < SRVec.size(); srN++){
     if(SRVec.at(srN).PassesSelection(values)){
@@ -1594,6 +1606,8 @@ void MT2Looper::fillHistosSignalRegion(const std::string& prefix, const std::str
     values_genmet["mt2"]         = t.mt2_genmet;
     values_genmet["ht"]          = ht_;
     values_genmet["met"]         = t.met_genPt;
+
+    if (include_eta_binning) values_genmet["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
 
     for(unsigned int srN = 0; srN < SRVec.size(); srN++){
       if(SRVec.at(srN).PassesSelection(values_genmet)){
@@ -1697,6 +1711,11 @@ void MT2Looper::fillHistosCRSL(const std::string& prefix, const std::string& suf
   values["ht"]          = ht_;
   values["met"]         = met_pt_;
 
+  if (include_eta_binning) 
+    {
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+    }
+
   for(unsigned int srN = 0; srN < SRVec.size(); srN++){
     if(SRVec.at(srN).PassesSelectionCRSL(values)){
       if(prefix=="crsl"){
@@ -1767,6 +1786,11 @@ void MT2Looper::fillHistosCRSL(const std::string& prefix, const std::string& suf
     values_genmet["mt2"]         = t.mt2_genmet;
     values_genmet["ht"]          = ht_;
     values_genmet["met"]         = t.met_genPt;
+
+    if (include_eta_binning) 
+      {
+	values_genmet["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+      }
 
     for(unsigned int srN = 0; srN < SRVec.size(); srN++){
       if(SRVec.at(srN).PassesSelectionCRSL(values_genmet)){
@@ -1840,6 +1864,11 @@ void MT2Looper::fillHistosCRGJ(const std::string& prefix, const std::string& suf
   values["ht"]          = t.gamma_ht;
   values["met"]         = t.gamma_met_pt;
   
+  if (include_eta_binning)
+    {
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+    }
+
   // Separate list for SRBASE
   std::map<std::string, float> valuesBase;
   valuesBase["deltaPhiMin"] = t.gamma_deltaPhiMin;
@@ -1916,6 +1945,7 @@ void MT2Looper::fillHistosCRGJ(const std::string& prefix, const std::string& suf
 	break;//control regions are orthogonal, event cannot be in more than one
       }
     }//SRloop
+
   }
 
   // BaseInclusive
@@ -2000,6 +2030,11 @@ void MT2Looper::fillHistosCRDY(const std::string& prefix, const std::string& suf
   values["ht"]          = t.zll_ht;
   values["met"]         = t.zll_met_pt;
 
+  if (include_eta_binning) 
+    {
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+    }
+
   // Separate list for SRBASE
   std::map<std::string, float> valuesBase;
   valuesBase["deltaPhiMin"] = t.zll_deltaPhiMin;
@@ -2047,8 +2082,6 @@ void MT2Looper::fillHistosCRDY(const std::string& prefix, const std::string& suf
     fillHistosDY(SRBaseIncl.crdyHistMap, SRBaseIncl.GetNumberOfMT2Bins(), SRBaseIncl.GetMT2Bins(), "crdybaseIncl", suffix);
   }
 
-
-
   if(passBase && t.zll_ht > 250.  && t.zll_ht < 450.)  fillHistosDY(InclusiveRegions.at(0).crdyHistMap, SRBase.GetNumberOfMT2Bins(), SRBase.GetMT2Bins(), "crdybaseVL", suffix);
   if(passBase && t.zll_ht > 450.  && t.zll_ht < 575.)  fillHistosDY(InclusiveRegions.at(1).crdyHistMap, SRBase.GetNumberOfMT2Bins(), SRBase.GetMT2Bins(), "crdybaseL", suffix);
   if(passBase && t.zll_ht > 575.  && t.zll_ht < 1000.) fillHistosDY(InclusiveRegions.at(2).crdyHistMap, SRBase.GetNumberOfMT2Bins(), SRBase.GetMT2Bins(), "crdybaseM", suffix);
@@ -2084,6 +2117,11 @@ void MT2Looper::fillHistosCRRL(const std::string& prefix, const std::string& suf
   values["mt2"]         = t.rl_mt2;
   values["ht"]          = t.rl_ht;
   values["met"]         = t.rl_met_pt;
+
+  if (include_eta_binning) 
+    {
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+    }
 
   // Separate list for SRBASE
   std::map<std::string, float> valuesBase;
@@ -2168,7 +2206,7 @@ void MT2Looper::fillHistosCRRL(const std::string& prefix, const std::string& suf
       break;//control regions are orthogonal, event cannot be in more than one
     }
   }
-
+  
   return;
 }
 
@@ -2193,6 +2231,11 @@ void MT2Looper::fillHistosCRQCD(const std::string& prefix, const std::string& su
   values["mt2"]         = mt2_;
   values["ht"]          = ht_;
   values["met"]         = met_pt_;
+
+  if (include_eta_binning) 
+    {
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
+    }
 
   for(unsigned int srN = 0; srN < SRVec.size(); srN++){
     if(SRVec.at(srN).PassesSelectionCRQCD(values)){

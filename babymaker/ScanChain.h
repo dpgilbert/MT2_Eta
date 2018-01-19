@@ -300,6 +300,19 @@ class babyMaker {
   Int_t             isoTrack_pdgId[max_nisoTrack];
   Int_t             isoTrack_mcMatchId[max_nisoTrack];
 
+//----- ALL TRACKS
+  static const int max_AllTrack = 1000;
+  Int_t             nAllTrack;
+  Float_t           AllTrack_pt[max_AllTrack];
+  Float_t           AllTrack_eta[max_AllTrack];
+  Float_t           AllTrack_phi[max_AllTrack];
+  Float_t           AllTrack_mass[max_AllTrack];
+  Float_t           AllTrack_absIso[max_AllTrack];
+  Float_t           AllTrack_relIsoAn04[max_AllTrack];
+  Float_t           AllTrack_dz[max_AllTrack];
+  Int_t             AllTrack_pdgId[max_AllTrack];
+  Int_t             AllTrack_mcMatchId[max_AllTrack];
+
   Int_t             nPFLep5LowMT;
   Int_t             nPFHad10LowMT;
 

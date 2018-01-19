@@ -1,2 +1,0 @@
-T2bb3
-T2bb_SUSYskimmed3.root

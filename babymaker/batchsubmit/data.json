@@ -1,0 +1,1456 @@
+{
+    "last_updated": 1503478645, 
+    "log": "[2017-08-22 08:36:13,353] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_7.root submitted successfully\n[2017-08-22 08:36:17,083] [BABY_SMS-T1tttt_TuneCUETP...] submitting 6 merge jobs\n[2017-08-22 08:36:17,335] [BABY_SMS-T1tttt_TuneCUETP...] job for merged_ntuple_1.root submitted successfully\n[2017-08-22 08:36:17,560] [BABY_SMS-T1tttt_TuneCUETP...] job for merged_ntuple_2.root submitted successfully\n[2017-08-22 08:36:17,877] [BABY_SMS-T1tttt_TuneCUETP...] job for merged_ntuple_3.root submitted successfully\n[2017-08-22 08:36:18,095] [BABY_SMS-T1tttt_TuneCUETP...] job for merged_ntuple_4.root submitted successfully\n[2017-08-22 08:36:18,320] [BABY_SMS-T1tttt_TuneCUETP...] job for merged_ntuple_5.root submitted successfully\n[2017-08-22 08:36:18,538] [BABY_SMS-T1tttt_TuneCUETP...] job for merged_ntuple_6.root submitted successfully\n[2017-08-22 08:56:22,895] [BABY_SMS-T1bbbb_TuneCUETP...] submitting 6 merge jobs\n[2017-08-22 08:56:23,081] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_1.root submitted successfully\n[2017-08-22 08:56:23,201] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_2.root submitted successfully\n[2017-08-22 08:56:23,302] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_3.root submitted successfully\n[2017-08-22 08:56:23,412] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_4.root submitted successfully\n[2017-08-22 08:56:23,512] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_5.root submitted successfully\n[2017-08-22 08:56:23,621] [BABY_SMS-T1bbbb_TuneCUETP...] job for merged_ntuple_6.root submitted successfully\n[2017-08-22 08:56:24,820] [BABY_SMS-T1tttt_TuneCUETP...] This sample is now done.\n[2017-08-22 09:16:28,004] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 09:16:32,701] [BABY_SMS-T1bbbb_TuneCUETP...] This sample is now done.\n[2017-08-22 09:16:35,049] [BABY_SMS-T1tttt_TuneCUETP...] updated DIS\n[2017-08-22 09:36:37,866] [BABY_SMS-T1bbbb_TuneCUETP...] updated DIS\n[2017-08-22 10:16:47,450] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 10:56:52,627] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 11:37:26,223] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 12:17:31,979] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 12:57:37,720] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 13:37:43,697] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 14:17:49,434] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 14:57:55,247] [BABY_TTJets_SingleLeptFro...] baby job for merged_ntuple_203.root submitted successfully\n[2017-08-22 15:25:59,123] [BABY_TTJets_SingleLeptFro...] found an action to skip rest of baby jobs (if they're possibly corrupted)\n[2017-08-22 15:25:59,297] [BABY_TTJets_SingleLeptFro...] removing residual condor jobs\n[2017-08-22 15:25:59,674] [BABY_TTJets_SingleLeptFro...] making merging chunks for output_*.root\n[2017-08-22 15:26:00,063] [BABY_TTJets_SingleLeptFro...] making merging chunks for skim_*.root\n[2017-08-22 15:26:00,458] [BABY_TTJets_SingleLeptFro...] making merging chunks for skim_rphi_*.root\n[2017-08-22 15:26:01,210] [BABY_TTJets_SingleLeptFro...] submitting 23 merge jobs\n[2017-08-22 15:26:01,400] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_1.root submitted successfully\n[2017-08-22 15:26:01,521] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_2.root submitted successfully\n[2017-08-22 15:26:01,632] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_3.root submitted successfully\n[2017-08-22 15:26:01,738] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_4.root submitted successfully\n[2017-08-22 15:26:01,848] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_5.root submitted successfully\n[2017-08-22 15:26:02,163] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_6.root submitted successfully\n[2017-08-22 15:26:02,458] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_7.root submitted successfully\n[2017-08-22 15:26:02,623] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_8.root submitted successfully\n[2017-08-22 15:26:02,747] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_9.root submitted successfully\n[2017-08-22 15:26:02,852] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_10.root submitted successfully\n[2017-08-22 15:26:02,960] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_11.root submitted successfully\n[2017-08-22 15:26:03,069] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_12.root submitted successfully\n[2017-08-22 15:26:03,178] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_13.root submitted successfully\n[2017-08-22 15:26:03,278] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_14.root submitted successfully\n[2017-08-22 15:26:03,387] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_15.root submitted successfully\n[2017-08-22 15:26:03,488] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_16.root submitted successfully\n[2017-08-22 15:26:03,613] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_17.root submitted successfully\n[2017-08-22 15:26:03,724] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_18.root submitted successfully\n[2017-08-22 15:26:03,823] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_19.root submitted successfully\n[2017-08-22 15:26:03,939] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_20.root submitted successfully\n[2017-08-22 15:26:04,048] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_21.root submitted successfully\n[2017-08-22 15:26:04,140] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_22.root submitted successfully\n[2017-08-22 15:26:04,241] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_23.root submitted successfully\n[2017-08-22 15:46:07,440] [BABY_TTJets_SingleLeptFro...] submitting 1 merge jobs\n[2017-08-22 15:46:07,600] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_1.root submitted successfully\n[2017-08-22 16:06:10,979] [BABY_TTJets_SingleLeptFro...] submitting 2 merge jobs\n[2017-08-22 16:06:11,140] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_1.root submitted successfully\n[2017-08-22 16:06:11,272] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_2.root submitted successfully\n[2017-08-22 16:26:14,084] [BABY_TTJets_SingleLeptFro...] This sample is now done.\n[2017-08-22 16:46:18,942] [BABY_TTJets_SingleLeptFro...] updated DIS\n[2017-08-22 23:36:59,498] [BABY_TTJets_SingleLeptFro...] found an action to skip rest of baby jobs (if they're possibly corrupted)\n[2017-08-22 23:36:59,676] [BABY_TTJets_SingleLeptFro...] removing residual condor jobs\n[2017-08-22 23:57:01,744] [BABY_TTJets_SingleLeptFro...] making merging chunks for output_*.root\n[2017-08-22 23:57:02,137] [BABY_TTJets_SingleLeptFro...] making merging chunks for skim_*.root\n[2017-08-22 23:57:02,503] [BABY_TTJets_SingleLeptFro...] making merging chunks for skim_rphi_*.root\n[2017-08-22 23:57:03,067] [BABY_TTJets_SingleLeptFro...] submitting 23 merge jobs\n[2017-08-22 23:57:03,275] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_1.root submitted successfully\n[2017-08-22 23:57:03,464] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_2.root submitted successfully\n[2017-08-22 23:57:03,583] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_3.root submitted successfully\n[2017-08-22 23:57:03,684] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_4.root submitted successfully\n[2017-08-22 23:57:03,795] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_5.root submitted successfully\n[2017-08-22 23:57:03,892] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_6.root submitted successfully\n[2017-08-22 23:57:04,001] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_7.root submitted successfully\n[2017-08-22 23:57:04,118] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_8.root submitted successfully\n[2017-08-22 23:57:04,219] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_9.root submitted successfully\n[2017-08-22 23:57:04,379] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_10.root submitted successfully\n[2017-08-22 23:57:04,492] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_11.root submitted successfully\n[2017-08-22 23:57:04,596] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_12.root submitted successfully\n[2017-08-22 23:57:04,705] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_13.root submitted successfully\n[2017-08-22 23:57:04,811] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_14.root submitted successfully\n[2017-08-22 23:57:04,922] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_15.root submitted successfully\n[2017-08-22 23:57:05,040] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_16.root submitted successfully\n[2017-08-22 23:57:05,166] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_17.root submitted successfully\n[2017-08-22 23:57:05,267] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_18.root submitted successfully\n[2017-08-22 23:57:05,368] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_19.root submitted successfully\n[2017-08-22 23:57:05,477] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_20.root submitted successfully\n[2017-08-22 23:57:05,577] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_21.root submitted successfully\n[2017-08-22 23:57:05,686] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_22.root submitted successfully\n[2017-08-22 23:57:05,778] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_23.root submitted successfully\n[2017-08-23 00:37:13,993] [BABY_TTJets_SingleLeptFro...] submitting 1 merge jobs\n[2017-08-23 00:37:14,181] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_1.root submitted successfully\n[2017-08-23 00:57:16,576] [BABY_TTJets_SingleLeptFro...] submitting 2 merge jobs\n[2017-08-23 00:57:16,786] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_1.root submitted successfully\n[2017-08-23 00:57:16,913] [BABY_TTJets_SingleLeptFro...] job for merged_ntuple_2.root submitted successfully\n[2017-08-23 01:37:23,081] [BABY_TTJets_SingleLeptFro...] This sample is now done.\n[2017-08-23 01:57:25,340] [BABY_TTJets_SingleLeptFro...] updated DIS", 
+    "samples": [
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 34, 
+                "dataset": "/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 34, 
+                "total": 34, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 3, 
+                "dataset": "/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 3, 
+                "total": 3, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_8", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_8_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 89, 
+                "dataset": "/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 89, 
+                "total": 89, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 21, 
+                "dataset": "/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 21, 
+                "total": 21, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorio_ext1", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorio_ext1_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 75, 
+                "dataset": "/TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 75, 
+                "total": 75, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80", 
+                "taskdir": "babies/babies_TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80_AllPF"
+            }, 
+            "dataset": "/TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 57, 
+                "dataset": "/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 57, 
+                "total": 57, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 3, 
+                "dataset": "/WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 3, 
+                "total": 3, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17__AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 128, 
+                "dataset": "/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 128, 
+                "total": 128, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext2", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext2_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext2-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 12, 
+                "dataset": "/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 12, 
+                "total": 12, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 36, 
+                "dataset": "/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 36, 
+                "total": 36, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 79, 
+                "dataset": "/TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 79, 
+                "total": 79, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17", 
+                "taskdir": "babies/babies_TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_AllPF"
+            }, 
+            "dataset": "/TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 24, 
+                "dataset": "/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 24, 
+                "total": 24, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 91, 
+                "dataset": "/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 91, 
+                "total": 91, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 160, 
+                "dataset": "/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 160, 
+                "total": 160, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asy", 
+                "taskdir": "babies/babies_WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asy_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 52, 
+                "dataset": "/WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 52, 
+                "total": 52, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorio_ext1", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorio_ext1_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 270, 
+                "dataset": "/TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 270, 
+                "total": 270, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMor_ext1", 
+                "taskdir": "babies/babies_TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMor_ext1_AllPF"
+            }, 
+            "dataset": "/TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "TTJets_SingleLeptFromTbar_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 178, 
+                "dataset": "/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 178, 
+                "total": 178, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1", 
+                "taskdir": "babies/babies_WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1_AllPF"
+            }, 
+            "dataset": "/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 281, 
+                "dataset": "/TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 281, 
+                "total": 281, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1", 
+                "taskdir": "babies/babies_TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMorion_ext1_AllPF"
+            }, 
+            "dataset": "/TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1/MINIAODSIM", 
+            "shortname": "TTJets_SingleLeptFromT_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISummer16MiniAODv2-PUMoriond17_80X_mcRun2_asymptotic_2016_TrancheIV_v6_ext1-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 209, 
+                "dataset": "/SMS-T1bbbb_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/SMS-T1bbbb_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 209, 
+                "total": 209, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "SMS-T1bbbb_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_", 
+                "taskdir": "babies/babies_SMS-T1bbbb_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2__AllPF"
+            }, 
+            "dataset": "/SMS-T1bbbb_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM", 
+            "shortname": "SMS-T1bbbb_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }, 
+        {
+            "baby": {
+                "analysis": "MT2", 
+                "baby_tag": "AllPF", 
+                "cmsswver": "CMSSW_8_0_21", 
+                "condor_done": 305, 
+                "dataset": "/SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM", 
+                "exe_args": [
+                    ""
+                ], 
+                "exe_args_nosplit": "", 
+                "executable_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/baby_ducks.sh", 
+                "finaldir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/MT2_AllPF/SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/", 
+                "idle": 0, 
+                "merged_dir": "/hadoop/cms/store/user/dpgilber/AutoTwopler_babies/merged//MT2/AllPF/", 
+                "merging_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/merging_script.sh", 
+                "nevents": -1, 
+                "output_names": [
+                    "output.root", 
+                    "skim.root", 
+                    "skim_rphi.root"
+                ], 
+                "output_names_nosplit": "output.root,skim.root,skim_rphi.root", 
+                "package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/package.tar.gz", 
+                "running": 0, 
+                "scramarch": "slc6_amd64_gcc530", 
+                "sweepRoot_script": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit//babies/sweepRoot.sh", 
+                "sweepRooted": 305, 
+                "total": 305, 
+                "user_executable": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/wrapper_auto.sh", 
+                "user_package": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/job_input/package.tar.gz"
+            }, 
+            "basedir": "/home/users/dpgilber/MT2AnalysisEdit/babymaker/batchsubmit/", 
+            "crab": {
+                "requestname": "SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_", 
+                "taskdir": "babies/babies_SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2__AllPF"
+            }, 
+            "dataset": "/SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1/MINIAODSIM", 
+            "shortname": "SMS-T1tttt_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_RunIISpring16MiniAODv2-PUSpring16Fast_80X_mcRun2_asymptotic_2016_miniAODv2_v0-v1", 
+            "status": "done", 
+            "type": "BABY", 
+            "user": "dpgilber"
+        }
+    ], 
+    "time_stats": [
+        [
+            1503371651, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 0
+            }
+        ], 
+        [
+            1503371718, 
+            {
+                "running_babies": 2109, 
+                "sweepRooted_babies": 0
+            }
+        ], 
+        [
+            1503371786, 
+            {
+                "running_babies": 2109, 
+                "sweepRooted_babies": 0
+            }
+        ], 
+        [
+            1503373004, 
+            {
+                "running_babies": 2108, 
+                "sweepRooted_babies": 1
+            }
+        ], 
+        [
+            1503374211, 
+            {
+                "running_babies": 2108, 
+                "sweepRooted_babies": 1
+            }
+        ], 
+        [
+            1503375228, 
+            {
+                "running_babies": 2108, 
+                "sweepRooted_babies": 1
+            }
+        ], 
+        [
+            1503376440, 
+            {
+                "running_babies": 2107, 
+                "sweepRooted_babies": 2
+            }
+        ], 
+        [
+            1503377718, 
+            {
+                "running_babies": 2090, 
+                "sweepRooted_babies": 17
+            }
+        ], 
+        [
+            1503379160, 
+            {
+                "running_babies": 2038, 
+                "sweepRooted_babies": 67
+            }
+        ], 
+        [
+            1503380832, 
+            {
+                "running_babies": 1937, 
+                "sweepRooted_babies": 165
+            }
+        ], 
+        [
+            1503382862, 
+            {
+                "running_babies": 1756, 
+                "sweepRooted_babies": 337
+            }
+        ], 
+        [
+            1503385059, 
+            {
+                "running_babies": 1553, 
+                "sweepRooted_babies": 539
+            }
+        ], 
+        [
+            1503387436, 
+            {
+                "running_babies": 1365, 
+                "sweepRooted_babies": 723
+            }
+        ], 
+        [
+            1503390222, 
+            {
+                "running_babies": 1056, 
+                "sweepRooted_babies": 1024
+            }
+        ], 
+        [
+            1503393280, 
+            {
+                "running_babies": 644, 
+                "sweepRooted_babies": 1401
+            }
+        ], 
+        [
+            1503395242, 
+            {
+                "running_babies": 534, 
+                "sweepRooted_babies": 1552
+            }
+        ], 
+        [
+            1503398287, 
+            {
+                "running_babies": 128, 
+                "sweepRooted_babies": 1912
+            }
+        ], 
+        [
+            1503400399, 
+            {
+                "running_babies": 12, 
+                "sweepRooted_babies": 2093
+            }
+        ], 
+        [
+            1503401643, 
+            {
+                "running_babies": 9, 
+                "sweepRooted_babies": 2100
+            }
+        ], 
+        [
+            1503402851, 
+            {
+                "running_babies": 8, 
+                "sweepRooted_babies": 2100
+            }
+        ], 
+        [
+            1503404055, 
+            {
+                "running_babies": 9, 
+                "sweepRooted_babies": 2100
+            }
+        ], 
+        [
+            1503405266, 
+            {
+                "running_babies": 7, 
+                "sweepRooted_babies": 2101
+            }
+        ], 
+        [
+            1503406470, 
+            {
+                "running_babies": 8, 
+                "sweepRooted_babies": 2101
+            }
+        ], 
+        [
+            1503407674, 
+            {
+                "running_babies": 7, 
+                "sweepRooted_babies": 2101
+            }
+        ], 
+        [
+            1503408880, 
+            {
+                "running_babies": 8, 
+                "sweepRooted_babies": 2101
+            }
+        ], 
+        [
+            1503410084, 
+            {
+                "running_babies": 7, 
+                "sweepRooted_babies": 2101
+            }
+        ], 
+        [
+            1503411299, 
+            {
+                "running_babies": 6, 
+                "sweepRooted_babies": 2103
+            }
+        ], 
+        [
+            1503412532, 
+            {
+                "running_babies": 3, 
+                "sweepRooted_babies": 2105
+            }
+        ], 
+        [
+            1503413755, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503414966, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503416179, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503417384, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503418595, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503419797, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503421000, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503422208, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503423410, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503424613, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503425839, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503427046, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503428249, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503429452, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503430655, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503431858, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503433061, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503434264, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503435467, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503436670, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503437873, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503439076, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503440278, 
+            {
+                "running_babies": 2, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503440765, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503441968, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503443172, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503444374, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503445579, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503446781, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503447983, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503449185, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503450387, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503451589, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503452791, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503453993, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503455195, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503456397, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503457599, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503458801, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503460003, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503461205, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503462407, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503463609, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503464810, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503466012, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503467215, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503468417, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503469618, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503470220, 
+            {
+                "running_babies": 1, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503471426, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503472631, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503473834, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503475037, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503476240, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503477443, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ], 
+        [
+            1503478645, 
+            {
+                "running_babies": 0, 
+                "sweepRooted_babies": 2107
+            }
+        ]
+    ]
+}

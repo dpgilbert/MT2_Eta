@@ -5,18 +5,19 @@
 #Define MODEL, DATE, and INDIR
 
 #the model name
-MODEL="T1tttt"
+#MODEL="T1tttt"
 #MODEL="T1bbbb"
-#MODEL="T1qqqq"
+MODEL="T1qqqq"
 #MODEL="T2tt"
 #MODEL="T2bb"
 #MODEL="T2-4bd_scan"
 
 #the suffix
-DATE="ETH_Feb2"
+DATE="PseudoJetEta_NoNan"
 
 #directory where cards and points_MODEL.txt can be found
-INDIR="/home/users/mderdzinski/winter2017/clean_master/scripts/cards_${MODEL}_${DATE}"
+#INDIR="/home/users/mderdzinski/winter2017/clean_master/scripts/cards_${MODEL}_${DATE}"
+INDIR="/home/users/dpgilber/MT2AnalysisEdit/scripts/cards_PseudoJetEta_NolnNFix"
 
 LIMITDIR="/hadoop/cms/store/user/${USER}/combine/limits/${MODEL}_${DATE}"
 

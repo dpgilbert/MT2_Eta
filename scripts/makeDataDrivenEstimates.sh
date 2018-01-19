@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INDIR=/home/users/mderdzinski/winter2017/clean_master/MT2looper/output/full2016_v16_Feb15/
+INDIR=/home/users/dpgilber/MT2AnalysisEdit/MT2looper/output/PseudoJetEta/
 
 THISDIR=`pwd`
 
@@ -18,7 +18,9 @@ RLFILE=data_Run2016
 QCDFILE=data_Run2016
 #QCDFILE=qcd_ht
 
-QCDESTIMATE=./inputs/qcdEstimateData
+#QCDESTIMATE=./inputs_new/qcdEstimateData_Mar07
+QCDESTIMATE=qcdEstimate/output/full2016_PseudoJetEta/qcdEstimate
+#QCDMONOJET=./inputs_new/qcdEstimateMonojet_Mar07
 QCDMONOJET=./inputs/qcdEstimateMonojet
 
 if [ ! -d "$INDIR" ]; then

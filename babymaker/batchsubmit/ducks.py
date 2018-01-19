@@ -1,11 +1,11 @@
 import sys
-sys.path.insert(0,"/home/users/olivito/mt2_80x/MT2Analysis/NtupleTools/AutoTwopler")
+sys.path.insert(0,"/home/users/dpgilber/MT2AnalysisEdit/NtupleTools/AutoTwopler")
 import run
 import params as p
 import mt2 as mt2
 
 # set tag
-mt2.tag = "V00-08-15"
+mt2.tag = "AllPF"
 
 # make instructions
 instructions = []
@@ -13,7 +13,7 @@ instructions = []
 ##
 ## make instructions by class of sample
 ##
-samples_types = ["backgrounds", "data", "scans"]
+samples_types = ["backgrounds", "scans"]
 #samples_types = ["scans"]
 for stype in samples_types:
     for ds in mt2.d_ds2name[stype].keys():

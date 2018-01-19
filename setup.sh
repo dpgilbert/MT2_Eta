@@ -18,7 +18,9 @@ then
   echo "Creating symbolic link to ~/CORE , make sure that it's up to date."
   ln -s /home/users/$USER/CORE . 
 else 
-  git clone git@github.com:cmstas/CORE.git
+#  git clone git@github.com:cmstas/CORE.git     - use this for local laptop
+# use the below for remote install on uaf
+  git clone https://github.com/cmstas/CORE.git 
   cd CORE
   git checkout master
   cd ..

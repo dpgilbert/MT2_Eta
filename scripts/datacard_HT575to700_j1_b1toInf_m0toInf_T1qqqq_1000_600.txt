@@ -1,0 +1,33 @@
+imax 1  number of channels
+jmax 3  number of backgrounds
+kmax *
+------------
+bin         HT575to700_j1_b1toInf_m0toInf
+observation 61.000
+------------
+bin             HT575to700_j1_b1toInf_m0toInf   HT575to700_j1_b1toInf_m0toInf   HT575to700_j1_b1toInf_m0toInf   HT575to700_j1_b1toInf_m0toInf
+process          sig       zinv        llep      qcd
+process           0         1           2         3
+rate            0.202    87.878      9.418      0.000
+------------
+lumi_syst                    lnN    1.026   -    -    - 
+sig_PUsyst                    lnN    1.046   -    -    - 
+sig_MCstat_HT575to700_j1_b1toInf_m0toInf     lnN    1.712   -    -    - 
+sig_gensyst                  lnU    1.000   -    -    - 
+sig_isrSyst                  lnN    0.923   -    -    - 
+sig_bTagHeavySyst            lnN    1.159   -    -    - 
+sig_bTagLightSyst            lnN    1.003   -    -    - 
+zinvDY_CRstat_HT575to700_j1_b1toInf        gmN 19    -   4.62516   -   - 
+zinvDY_alphaErr_HT575to700_j1_b1toInf_m0toInf        lnN    -   1.050   -   - 
+zinvDY_purity_HT575to700_j1_b1toInf        lnN    -   1.000   -   - 
+zinvDY_Rsfof        lnN    -   1.000   -   - 
+llep_mtcut        lnN    -    -    1.030    - 
+llep_taueff        lnN    -    -    1.012    - 
+llep_btageff        lnN    -    -    1.008    - 
+llep_renorm        lnN    -    -    1.011    - 
+llep_CRstat_HT575to700_j1_b1toInf_m0toInf        gmN 23    -    -    0.40948     - 
+llep_MCstat_HT575to700_j1_b1toInf_m0toInf        lnN    -    -    1.235    - 
+jec        lnN    -    1.020    1.020    - 
+lep_eff        lnN    -    1.050    1.045    - 
+qcd_CRstat_HT575to700_j1_b1toInf_m0toInf_m0toInf        gmN 0    -    -    -   2.00000
+qcd_alphaErr_HT575to700_j1_b1toInf_m0toInf        lnN    -    -    -   -nan

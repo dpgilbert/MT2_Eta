@@ -62,19 +62,39 @@ void QCDLooper::SetSignalRegions(){
     double HTcuts[6] = {250,450,575,1000,1500,-1};
     for(unsigned int i=0; i<5; i++){
         SR sr;
-        sr.SetName("rphi_"+HTnames[i]);
+        sr.SetName("rphi_"+HTnames[i]+"cent");
         sr.SetVar("ht",HTcuts[i],HTcuts[i+1]);
         sr.SetVar("njets",2,-1);
         sr.SetVar("mt2",50,-1);
         sr.SetVar("deltaPhiMin",0,-1);
+	sr.SetVar("PseudoJet1_eta",0,1.4);
         SRVec_rphi.push_back(sr);
         outfile_->mkdir(sr.GetName().c_str());
 
-        sr.SetName("fj_"+HTnames[i]);
+        sr.SetName("rphi_"+HTnames[i]+"forw");
+        sr.SetVar("ht",HTcuts[i],HTcuts[i+1]);
+        sr.SetVar("njets",2,-1);
+        sr.SetVar("mt2",50,-1);
+        sr.SetVar("deltaPhiMin",0,-1);
+	sr.SetVar("PseudoJet1_eta",1.4,-1);
+        SRVec_rphi.push_back(sr);
+        outfile_->mkdir(sr.GetName().c_str());
+
+        sr.SetName("fj_"+HTnames[i]+"cent");
         sr.SetVar("ht",HTcuts[i],HTcuts[i+1]);
         sr.SetVar("njets",2,-1);
         sr.SetVar("mt2",100,200);
         sr.SetVar("deltaPhiMin",0,0.3);
+	sr.SetVar("PseudoJet1_eta",0,1.4);
+        SRVec_fj.push_back(sr);
+        outfile_->mkdir(sr.GetName().c_str());
+
+        sr.SetName("fj_"+HTnames[i]+"forw");
+        sr.SetVar("ht",HTcuts[i],HTcuts[i+1]);
+        sr.SetVar("njets",2,-1);
+        sr.SetVar("mt2",100,200);
+        sr.SetVar("deltaPhiMin",0,0.3);
+	sr.SetVar("PseudoJet1_eta",1.4,-1);
         SRVec_fj.push_back(sr);
         outfile_->mkdir(sr.GetName().c_str());
     }
@@ -82,19 +102,39 @@ void QCDLooper::SetSignalRegions(){
     // now we have to add an extra ht region for the SSRs
     //
     SR sr;
-    sr.SetName("rphi_"+HTnames[5]);
+    sr.SetName("rphi_"+HTnames[5]+"cent");
     sr.SetVar("ht",1000,-1);
     sr.SetVar("njets",2,-1);
     sr.SetVar("mt2",50,-1);
     sr.SetVar("deltaPhiMin",0,-1);
+    sr.SetVar("PseudoJet1_eta",0,1.4);
     SRVec_rphi.push_back(sr);
     outfile_->mkdir(sr.GetName().c_str());
 
-    sr.SetName("fj_"+HTnames[5]);
+    sr.SetName("rphi_"+HTnames[5]+"forw");
+    sr.SetVar("ht",1000,-1);
+    sr.SetVar("njets",2,-1);
+    sr.SetVar("mt2",50,-1);
+    sr.SetVar("deltaPhiMin",0,-1);
+    sr.SetVar("PseudoJet1_eta",1.4,-1);
+    SRVec_rphi.push_back(sr);
+    outfile_->mkdir(sr.GetName().c_str());
+
+    sr.SetName("fj_"+HTnames[5]+"cent");
     sr.SetVar("ht",1000,-1);
     sr.SetVar("njets",2,-1);
     sr.SetVar("mt2",100,200);
     sr.SetVar("deltaPhiMin",0,0.3);
+    sr.SetVar("PseudoJet1_eta",0,1.4);
+    SRVec_fj.push_back(sr);
+    outfile_->mkdir(sr.GetName().c_str());
+
+    sr.SetName("fj_"+HTnames[5]+"forw");
+    sr.SetVar("ht",1000,-1);
+    sr.SetVar("njets",2,-1);
+    sr.SetVar("mt2",100,200);
+    sr.SetVar("deltaPhiMin",0,0.3);
+    sr.SetVar("PseudoJet1_eta",1.4,-1);
     SRVec_fj.push_back(sr);
     outfile_->mkdir(sr.GetName().c_str());
     
@@ -103,7 +143,7 @@ void QCDLooper::SetSignalRegions(){
     int NJcuts[4] = {2,4,7,-1};
     for(unsigned int i=0; i<6; i++){
         SR sr;
-        sr.SetName("rb_"+NJnames[i]);
+        sr.SetName("rb_"+NJnames[i]+"cent");
         sr.SetVar("ht",1000,-1); // put cut at ht 1000 to allow use of unprescaled trigger PFHT800
         if (i < 3)
           sr.SetVar("njets",NJcuts[i],NJcuts[i+1]);
@@ -115,6 +155,23 @@ void QCDLooper::SetSignalRegions(){
           sr.SetVar("njets",NJcuts[0],NJcuts[3]);
         sr.SetVar("mt2",100,200);
         sr.SetVar("deltaPhiMin",0,0.3);
+	sr.SetVar("PseudoJet1_eta",0,1.4);
+        SRVec_rb.push_back(sr);
+        outfile_->mkdir(sr.GetName().c_str());
+
+        sr.SetName("rb_"+NJnames[i]+"forw");
+        sr.SetVar("ht",1000,-1); // put cut at ht 1000 to allow use of unprescaled trigger PFHT800
+        if (i < 3)
+          sr.SetVar("njets",NJcuts[i],NJcuts[i+1]);
+        else if (i == 3)
+          sr.SetVar("njets",NJcuts[0],NJcuts[2]);
+        else if (i == 4)
+          sr.SetVar("njets",NJcuts[1],NJcuts[3]);
+        else if (i == 5)
+          sr.SetVar("njets",NJcuts[0],NJcuts[3]);
+        sr.SetVar("mt2",100,200);
+        sr.SetVar("deltaPhiMin",0,0.3);
+	sr.SetVar("PseudoJet1_eta",1.4,-1);
         SRVec_rb.push_back(sr);
         outfile_->mkdir(sr.GetName().c_str());
     }
@@ -262,6 +319,7 @@ void QCDLooper::loop(TChain* chain, std::string output_name){
       values["ht"]          = t.ht;
       values["mt2"]         = t.mt2;
       values["deltaPhiMin"] = t.deltaPhiMin;
+      values["PseudoJet1_eta"] = t.pseudoJet1_eta;
       for(unsigned int i=0; i<SRVec_rphi.size(); i++){
         if(SRVec_rphi.at(i).PassesSelection(values))
           fillHistosRphi(SRVec_rphi.at(i).srHistMap,SRVec_rphi.at(i).GetName().c_str());

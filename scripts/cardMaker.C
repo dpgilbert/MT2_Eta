@@ -19,6 +19,7 @@
 #include "TKey.h"
 #include "TBenchmark.h"
 #include "RooHistError.h"
+#include "TError.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ TFile* f_qcd = 0;
 TFile* f_sig = 0;
 TFile* f_data = 0;
 
-const bool verbose = false;
+const bool verbose = true;
 
 const bool suppressZeroBins = false;
 
@@ -88,9 +89,27 @@ double round(double d)
 //_______________________________________________________________________________
 int printCard( string dir_str , int mt2bin , string signal, string output_dir, int scanM1 = -1, int scanM2 = -1) {
 
+  if (scanM1 != 1000 || scanM2 != 600) return 0;
+
   // read off yields from h_mt2bins hist in each topological region
   if (verbose) cout<<"Looking at region "<<dir_str<<", mt2 bin "<<mt2bin<<endl;
   TString dir = TString(dir_str);
+
+  // Used to test for directory existence. If a control region has zero counts, no directory is created for it.
+  TDirectoryFile* dir_sig = (TDirectoryFile*) f_sig->Get(dir);
+  TDirectoryFile* dir_lostlep = (TDirectoryFile*) f_lostlep->Get(dir);
+  TDirectoryFile* dir_zinv = (TDirectoryFile*) f_zinv->Get(dir);
+  TDirectoryFile* dir_zinvDY = (TDirectoryFile*) f_zinvDY->Get(dir);
+  TDirectoryFile* dir_zgratio = (TDirectoryFile*) f_zgratio->Get(dir);
+  TDirectoryFile* dir_purity = (TDirectoryFile*) f_purity->Get(dir);
+  TDirectoryFile* dir_qcd = (TDirectoryFile*) f_qcd->Get(dir);
+
+  // This should never happen because f_sig generates the list of dirs, but just in case...
+  if (!dir_sig) {
+    cout << "dir " << dir << " does not exist in f_sig. Aborting..." << endl;
+    return 0;
+  }
+
   TString fullhistname = dir + "/h_mt2bins";
   TString fullhistnameGenMet  = fullhistname+"_genmet";
   TString fullhistnameBtagsfHeavy  = fullhistname+"_btagsf_heavy_UP";
@@ -302,37 +321,48 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
   std::string jet_str = (njets_HI_mod == njets_LOW) ? "j" + to_string(njets_LOW) : "j" + to_string(njets_LOW) + "to" + to_string(njets_HI_mod);
   std::string bjet_str = (nbjets_HI_mod == nbjets_LOW) ? "b" + to_string(nbjets_LOW) : "b" + to_string(nbjets_LOW) + "to" + to_string(nbjets_HI_mod);
   std::string mt2_str = "m" + to_string(mt2_LOW) + "to" + to_string(mt2_HI);
+  std::string eta_str = dir_str.substr(dir_str.length()-4);
   
+  cout << "eta_str = " << eta_str << endl;
+
   //Replace instances of "-1" with "inf" for variables with no upper bound.
   ReplaceString(ht_str, "-1", "Inf");
   ReplaceString(jet_str, "-1", "Inf");
   ReplaceString(bjet_str, "-1", "Inf");
   ReplaceString(mt2_str, "-1", "Inf");
 
-  std::string channel = ht_str + "_" + jet_str + "_" + bjet_str + "_" + mt2_str;
-  std::string topologicalR = ht_str + "_" + jet_str + "_" + bjet_str;
+  std::string channel = ht_str + "_" + jet_str + "_" + bjet_str + "_" + eta_str + "_" + mt2_str;
+  std::string topologicalR = ht_str + "_" + jet_str + "_" + bjet_str + "_" + eta_str;
   
   // bin boundaries for CRSL, for lostlep systematic correlations
-  TH1D* h_ht_LOW_crsl = (TH1D*) f_lostlep->Get(dir+"/h_ht_LOW");
-  TH1D* h_ht_HI_crsl = (TH1D*) f_lostlep->Get(dir+"/h_ht_HI");
-  int ht_LOW_crsl = h_ht_LOW_crsl->GetBinContent(1);
-  int ht_HI_crsl = h_ht_HI_crsl->GetBinContent(1);
+  int ht_LOW_crsl = 0;
+  int ht_HI_crsl = 0;
+  int nbjets_LOW_crsl = 0;
+  int nbjets_HI_crsl = 0;
+  int njets_LOW_crsl = 0;
+  int njets_HI_crsl = 0;
+  // Check if dir_lostlep exists, then update boundaries if so.
+  if (dir_lostlep) {
+    TH1D* h_ht_LOW_crsl = (TH1D*) f_lostlep->Get(dir+"/h_ht_LOW");
+    TH1D* h_ht_HI_crsl = (TH1D*) f_lostlep->Get(dir+"/h_ht_HI");
+    ht_LOW_crsl = h_ht_LOW_crsl->GetBinContent(1);
+    ht_HI_crsl = h_ht_HI_crsl->GetBinContent(1);
   
-  TH1D* h_nbjets_LOW_crsl = (TH1D*) f_lostlep->Get(dir+"/h_nbjets_LOW");
-  TH1D* h_nbjets_HI_crsl = (TH1D*) f_lostlep->Get(dir+"/h_nbjets_HI");
-  int nbjets_LOW_crsl = h_nbjets_LOW_crsl->GetBinContent(1);
-  int nbjets_HI_crsl = h_nbjets_HI_crsl->GetBinContent(1);
-
-  TH1D* h_njets_LOW_crsl = (TH1D*) f_lostlep->Get(dir+"/h_njets_LOW");
-  TH1D* h_njets_HI_crsl = (TH1D*) f_lostlep->Get(dir+"/h_njets_HI");
-  int njets_LOW_crsl = h_njets_LOW_crsl->GetBinContent(1);
-  int njets_HI_crsl = h_njets_HI_crsl->GetBinContent(1);
-
+    TH1D* h_nbjets_LOW_crsl = (TH1D*) f_lostlep->Get(dir+"/h_nbjets_LOW");
+    TH1D* h_nbjets_HI_crsl = (TH1D*) f_lostlep->Get(dir+"/h_nbjets_HI");
+    nbjets_LOW_crsl = h_nbjets_LOW_crsl->GetBinContent(1);
+    nbjets_HI_crsl = h_nbjets_HI_crsl->GetBinContent(1);
+    
+    TH1D* h_njets_LOW_crsl = (TH1D*) f_lostlep->Get(dir+"/h_njets_LOW");
+    TH1D* h_njets_HI_crsl = (TH1D*) f_lostlep->Get(dir+"/h_njets_HI");
+    njets_LOW_crsl = h_njets_LOW_crsl->GetBinContent(1);
+    njets_HI_crsl = h_njets_HI_crsl->GetBinContent(1);
+  }
   int nbjets_HI_crsl_mod = nbjets_HI_crsl;
   int njets_HI_crsl_mod = njets_HI_crsl;
   if(nbjets_HI_crsl != -1) nbjets_HI_crsl_mod--;
   if(njets_HI_crsl != -1) njets_HI_crsl_mod--;
-
+  
   std::string ht_str_crsl = "HT" + to_string(ht_LOW_crsl) + "to" + to_string(ht_HI_crsl);
   std::string jet_str_crsl = (njets_HI_crsl_mod == njets_LOW_crsl) ? "j" + to_string(njets_LOW_crsl) : "j" + to_string(njets_LOW_crsl) + "to" + to_string(njets_HI_crsl_mod);
   std::string bjet_str_crsl = (nbjets_HI_crsl_mod == nbjets_LOW_crsl) ? "b" + to_string(nbjets_LOW_crsl) : "b" + to_string(nbjets_LOW_crsl) + "to" + to_string(nbjets_HI_crsl_mod);
@@ -341,75 +371,76 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
   ReplaceString(ht_str_crsl, "-1", "Inf");
   ReplaceString(jet_str_crsl, "-1", "Inf");
   ReplaceString(bjet_str_crsl, "-1", "Inf");
-
+  
   TString cardname = Form("%s/datacard_%s_%s.txt",output_dir.c_str(),channel.c_str(),signame.Data());
-
-    if (suppressZeroBins && ((n_sig < 0.1) || (n_sig/n_bkg < 0.02))) {
-      //if ( (suppressZeroBins && (n_sig < 0.001)) || (suppressZeroTRs && (n_sig < 0.001)) ) {
+  
+  if (suppressZeroBins && ((n_sig < 0.1) || (n_sig/n_bkg < 0.02))) {
+    //if ( (suppressZeroBins && (n_sig < 0.001)) || (suppressZeroTRs && (n_sig < 0.001)) ) {
     if (verbose) std::cout << "Zero signal, card not printed: " << cardname << std::endl;
     return 0;
   }
-
+  
   // get yields for each sample
   // !!!!! HACK: set zero bins to 0.01 for now to make combine happy
-  TH1D* h_lostlep = (TH1D*) f_lostlep->Get(fullhistname);
-  if (h_lostlep != 0) {
-    n_lostlep = h_lostlep->GetBinContent(mt2bin);
-  } 
-  TH1D* h_lostlep_mcstat = (TH1D*) f_lostlep->Get(fullhistnameMCStat);
-  if (h_lostlep_mcstat != 0 && h_lostlep_mcstat->GetBinContent(mt2bin) != 0) 
-    err_lostlep_mcstat = h_lostlep_mcstat->GetBinError(mt2bin)/h_lostlep_mcstat->GetBinContent(mt2bin);
-  TH1D* h_lostlep_cryield = (TH1D*) f_lostlep->Get(fullhistnameCRyieldDatacard);
-  if (h_lostlep_cryield != 0) 
-    n_lostlep_cr = round(h_lostlep_cryield->GetBinContent(mt2bin));
-  TH1D* h_lostlep_alpha = (TH1D*) f_lostlep->Get(fullhistnameAlpha);
-  if (h_lostlep_alpha != 0) {
-    lostlep_alpha = h_lostlep_alpha->GetBinContent(mt2bin);
-    lostlep_alpha_topological = h_lostlep_alpha->Integral(0,-1);
+  if (dir_lostlep) {
+    TH1D* h_lostlep = (TH1D*) f_lostlep->Get(fullhistname);
+    if (h_lostlep != 0) {
+      n_lostlep = h_lostlep->GetBinContent(mt2bin);
+    } 
+    TH1D* h_lostlep_mcstat = (TH1D*) f_lostlep->Get(fullhistnameMCStat);
+    if (h_lostlep_mcstat != 0 && h_lostlep_mcstat->GetBinContent(mt2bin) != 0) 
+      err_lostlep_mcstat = h_lostlep_mcstat->GetBinError(mt2bin)/h_lostlep_mcstat->GetBinContent(mt2bin);
+    TH1D* h_lostlep_cryield = (TH1D*) f_lostlep->Get(fullhistnameCRyieldDatacard);
+    if (h_lostlep_cryield != 0) 
+      n_lostlep_cr = round(h_lostlep_cryield->GetBinContent(mt2bin));
+    TH1D* h_lostlep_alpha = (TH1D*) f_lostlep->Get(fullhistnameAlpha);
+    if (h_lostlep_alpha != 0) {
+      lostlep_alpha = h_lostlep_alpha->GetBinContent(mt2bin);
+      lostlep_alpha_topological = h_lostlep_alpha->Integral(0,-1);
+    }
+    TH1D* h_lostlep_alpha_lepeff_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_lepeff_UP");
+    if (h_lostlep_alpha_lepeff_UP != 0) 
+      lostlep_alpha_lepeff_UP = h_lostlep_alpha_lepeff_UP->Integral(0,-1);
+    TH1D* h_lostlep_alpha_lepeff_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_lepeff_DN");
+    if (h_lostlep_alpha_lepeff_DN != 0) 
+      lostlep_alpha_lepeff_DN = h_lostlep_alpha_lepeff_DN->Integral(0,-1);
+    TH1D* h_lostlep_alpha_btagsf_heavy_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_heavy_UP");
+    if (h_lostlep_alpha_btagsf_heavy_UP != 0) 
+      lostlep_alpha_btagsf_heavy_UP = h_lostlep_alpha_btagsf_heavy_UP->Integral(0,-1);
+    TH1D* h_lostlep_alpha_btagsf_heavy_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_heavy_DN");
+    if (h_lostlep_alpha_btagsf_heavy_DN != 0) 
+      lostlep_alpha_btagsf_heavy_DN = h_lostlep_alpha_btagsf_heavy_DN->Integral(0,-1);
+    TH1D* h_lostlep_alpha_btagsf_light_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_light_UP");
+    if (h_lostlep_alpha_btagsf_light_UP != 0) 
+      lostlep_alpha_btagsf_light_UP = h_lostlep_alpha_btagsf_light_UP->Integral(0,-1);
+    TH1D* h_lostlep_alpha_btagsf_light_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_light_DN");
+    if (h_lostlep_alpha_btagsf_light_DN != 0) 
+      lostlep_alpha_btagsf_light_DN = h_lostlep_alpha_btagsf_light_DN->Integral(0,-1);
+    TH1D* h_lostlep_alpha_tau1p_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau1p_UP");
+    if (h_lostlep_alpha_tau1p_UP != 0) 
+      lostlep_alpha_tau1p_UP = h_lostlep_alpha_tau1p_UP->Integral(0,-1);
+    TH1D* h_lostlep_alpha_tau1p_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau1p_DN");
+    if (h_lostlep_alpha_tau1p_DN != 0) 
+      lostlep_alpha_tau1p_DN = h_lostlep_alpha_tau1p_DN->Integral(0,-1);
+    TH1D* h_lostlep_alpha_tau3p_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau3p_UP");
+    if (h_lostlep_alpha_tau3p_UP != 0) 
+      lostlep_alpha_tau3p_UP = h_lostlep_alpha_tau3p_UP->Integral(0,-1);
+    TH1D* h_lostlep_alpha_tau3p_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau3p_DN");
+    if (h_lostlep_alpha_tau3p_DN != 0) 
+      lostlep_alpha_tau3p_DN = h_lostlep_alpha_tau3p_DN->Integral(0,-1);
+    TH1D* h_lostlep_alpha_renorm_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_renorm_UP");
+    if (h_lostlep_alpha_renorm_UP != 0) 
+      lostlep_alpha_renorm_UP = h_lostlep_alpha_renorm_UP->Integral(0,-1);
+    TH1D* h_lostlep_alpha_renorm_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_renorm_DN");
+    if (h_lostlep_alpha_renorm_DN != 0) 
+      lostlep_alpha_renorm_DN = h_lostlep_alpha_renorm_DN->Integral(0,-1);
+    TH1D* h_lostlep_lastbin_hybrid = (TH1D*) f_lostlep->Get(fullhistnameLastbinHybrid);
+    if (h_lostlep_lastbin_hybrid != 0)
+      lostlep_lastbin_hybrid = h_lostlep_lastbin_hybrid->GetBinContent(1);
+    TH1D* h_lostlep_MCExtrap = (TH1D*) f_lostlep->Get(fullhistnameMCExtrap);
+    if (h_lostlep_MCExtrap != 0)
+      lostlep_MCExtrap = h_lostlep_MCExtrap->GetBinContent(mt2bin);
   }
-  TH1D* h_lostlep_alpha_lepeff_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_lepeff_UP");
-  if (h_lostlep_alpha_lepeff_UP != 0) 
-    lostlep_alpha_lepeff_UP = h_lostlep_alpha_lepeff_UP->Integral(0,-1);
-  TH1D* h_lostlep_alpha_lepeff_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_lepeff_DN");
-  if (h_lostlep_alpha_lepeff_DN != 0) 
-    lostlep_alpha_lepeff_DN = h_lostlep_alpha_lepeff_DN->Integral(0,-1);
-  TH1D* h_lostlep_alpha_btagsf_heavy_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_heavy_UP");
-  if (h_lostlep_alpha_btagsf_heavy_UP != 0) 
-    lostlep_alpha_btagsf_heavy_UP = h_lostlep_alpha_btagsf_heavy_UP->Integral(0,-1);
-  TH1D* h_lostlep_alpha_btagsf_heavy_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_heavy_DN");
-  if (h_lostlep_alpha_btagsf_heavy_DN != 0) 
-    lostlep_alpha_btagsf_heavy_DN = h_lostlep_alpha_btagsf_heavy_DN->Integral(0,-1);
-  TH1D* h_lostlep_alpha_btagsf_light_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_light_UP");
-  if (h_lostlep_alpha_btagsf_light_UP != 0) 
-    lostlep_alpha_btagsf_light_UP = h_lostlep_alpha_btagsf_light_UP->Integral(0,-1);
-  TH1D* h_lostlep_alpha_btagsf_light_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_btagsf_light_DN");
-  if (h_lostlep_alpha_btagsf_light_DN != 0) 
-    lostlep_alpha_btagsf_light_DN = h_lostlep_alpha_btagsf_light_DN->Integral(0,-1);
-  TH1D* h_lostlep_alpha_tau1p_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau1p_UP");
-  if (h_lostlep_alpha_tau1p_UP != 0) 
-    lostlep_alpha_tau1p_UP = h_lostlep_alpha_tau1p_UP->Integral(0,-1);
-  TH1D* h_lostlep_alpha_tau1p_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau1p_DN");
-  if (h_lostlep_alpha_tau1p_DN != 0) 
-    lostlep_alpha_tau1p_DN = h_lostlep_alpha_tau1p_DN->Integral(0,-1);
-  TH1D* h_lostlep_alpha_tau3p_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau3p_UP");
-  if (h_lostlep_alpha_tau3p_UP != 0) 
-    lostlep_alpha_tau3p_UP = h_lostlep_alpha_tau3p_UP->Integral(0,-1);
-  TH1D* h_lostlep_alpha_tau3p_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_tau3p_DN");
-  if (h_lostlep_alpha_tau3p_DN != 0) 
-    lostlep_alpha_tau3p_DN = h_lostlep_alpha_tau3p_DN->Integral(0,-1);
-  TH1D* h_lostlep_alpha_renorm_UP = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_renorm_UP");
-  if (h_lostlep_alpha_renorm_UP != 0) 
-    lostlep_alpha_renorm_UP = h_lostlep_alpha_renorm_UP->Integral(0,-1);
-  TH1D* h_lostlep_alpha_renorm_DN = (TH1D*) f_lostlep->Get(fullhistnameAlpha+"_renorm_DN");
-  if (h_lostlep_alpha_renorm_DN != 0) 
-    lostlep_alpha_renorm_DN = h_lostlep_alpha_renorm_DN->Integral(0,-1);
-  TH1D* h_lostlep_lastbin_hybrid = (TH1D*) f_lostlep->Get(fullhistnameLastbinHybrid);
-  if (h_lostlep_lastbin_hybrid != 0)
-    lostlep_lastbin_hybrid = h_lostlep_lastbin_hybrid->GetBinContent(1);
-  TH1D* h_lostlep_MCExtrap = (TH1D*) f_lostlep->Get(fullhistnameMCExtrap);
-  if (h_lostlep_MCExtrap != 0)
-    lostlep_MCExtrap = h_lostlep_MCExtrap->GetBinContent(mt2bin);
-
   //calculate lostlep_alpha errors
   //lepeff
   double lostlep_alpha_lepeff_ERR = 0;
@@ -449,92 +480,104 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
   double lostlep_shape_ERR = 0;
   if (n_lostlep > 0.) lostlep_shape_ERR = lostlep_MCExtrap / n_lostlep;
 
-  TH1D* h_zinv = (TH1D*) f_zinv->Get(fullhistname);
   int n_mt2bins = 1;
-  if (h_zinv != 0) n_zinv = h_zinv->GetBinContent(mt2bin);
-  if (h_zinv != 0) n_mt2bins = h_zinv->GetNbinsX();
-
-  // MC stat unc based on #Z/#g
-  TH1D* h_zinv_mcstat = (TH1D*) f_zinv->Get(fullhistnameRatio);
-  if (integratedZinvEstimate) h_zinv_mcstat = (TH1D*) f_zinv->Get(fullhistnameRatioInt);
-  if (h_zinv_mcstat != 0 && h_zinv_mcstat->GetBinContent(mt2bin) != 0) {
-    err_zinv_mcstat = h_zinv_mcstat->GetBinError(mt2bin)/h_zinv_mcstat->GetBinContent(mt2bin);
-    zinv_ratio_zg = h_zinv_mcstat->GetBinContent(mt2bin);
-    last_zinv_ratio = zinv_ratio_zg;
-  }
-  else { // catch zeroes (there shouldn't be any)
-    err_zinv_mcstat = 1.;
-    zinv_ratio_zg = last_zinv_ratio;
+  // Need this scoping of h_zinv for hybrid calculation to compile, but calculation
+  // won't happen for default n_mt2bins and zinv_lastbin_hybrid values.
+  TH1D* h_zinv(0); 
+  if (dir_zinv != 0) {
+    h_zinv = (TH1D*) f_zinv->Get(fullhistname);
+    if (h_zinv != 0) n_zinv = h_zinv->GetBinContent(mt2bin);
+    if (h_zinv != 0) n_mt2bins = h_zinv->GetNbinsX();    
+    // MC stat unc based on #Z/#g
+    TH1D* h_zinv_mcstat = (TH1D*) f_zinv->Get(fullhistnameRatio);
+    if (integratedZinvEstimate) h_zinv_mcstat = (TH1D*) f_zinv->Get(fullhistnameRatioInt);
+    if (h_zinv_mcstat != 0 && h_zinv_mcstat->GetBinContent(mt2bin) != 0) {
+      err_zinv_mcstat = h_zinv_mcstat->GetBinError(mt2bin)/h_zinv_mcstat->GetBinContent(mt2bin);
+      zinv_ratio_zg = h_zinv_mcstat->GetBinContent(mt2bin);
+      last_zinv_ratio = zinv_ratio_zg;
+    }
+    else { // catch zeroes (there shouldn't be any)
+      err_zinv_mcstat = 1.;
+      zinv_ratio_zg = last_zinv_ratio;
+    }
   }
   // Pure GJet yield (useful when extracting G_i/G_int for integral estimate)
   TH1D* h_gjetyield = (TH1D*) f_zinv->Get(fullhistnameCRyield);
 
-  // Photon yield (includes GJetPrompt+QCDPrompt+QCDFake, or Data)
-  TH1D* h_zinv_cryield = (TH1D*) f_purity->Get(fullhistname);
-  if (h_zinv_cryield != 0) {
-    n_zinv_cr = round(h_zinv_cryield->GetBinContent(mt2bin));
-    if (integratedZinvEstimate)  n_zinv_cr = round(h_zinv_cryield->Integral(0,-1));
-  }
+  if (dir_purity) {
+    // Photon yield (includes GJetPrompt+QCDPrompt+QCDFake, or Data)
+    TH1D* h_zinv_cryield = (TH1D*) f_purity->Get(fullhistname);
+    if (h_zinv_cryield != 0) {
+      n_zinv_cr = round(h_zinv_cryield->GetBinContent(mt2bin));
+      if (integratedZinvEstimate)  n_zinv_cr = round(h_zinv_cryield->Integral(0,-1));
+    }
  
-  // Purity and uncertainty (bin-by-bin estimate)
-  TH1D* h_zinv_purity = (TH1D*) f_purity->Get(fullhistnamePurity);
-  zinv_purity = 1.;
-  int mt2bin_tmp = mt2bin;
-  if (integratedZinvEstimate) {
-    // When using the integrated estimate (over MT2), should use the integrated purity.
-    h_zinv_purity = (TH1D*) f_purity->Get(fullhistnamePurityInt);
-    mt2bin_tmp = 1;
-  }
- 
-  if (h_zinv_purity != 0 && h_zinv_purity->GetBinContent(mt2bin_tmp) != 0) {
-    zinv_purity *= h_zinv_purity->GetBinContent(mt2bin_tmp);
-    err_zinv_purity = h_zinv_purity->GetBinError(mt2bin_tmp)/h_zinv_purity->GetBinContent(mt2bin_tmp);
+    // Purity and uncertainty (bin-by-bin estimate)
+    TH1D* h_zinv_purity = (TH1D*) f_purity->Get(fullhistnamePurity);
+    zinv_purity = 1.;
+    int mt2bin_tmp = mt2bin;
+    if (integratedZinvEstimate) {
+      // When using the integrated estimate (over MT2), should use the integrated purity.
+      h_zinv_purity = (TH1D*) f_purity->Get(fullhistnamePurityInt);
+      mt2bin_tmp = 1;
+    }
+    
+    if (h_zinv_purity != 0 && h_zinv_purity->GetBinContent(mt2bin_tmp) != 0) {
+      zinv_purity *= h_zinv_purity->GetBinContent(mt2bin_tmp);
+      err_zinv_purity = h_zinv_purity->GetBinError(mt2bin_tmp)/h_zinv_purity->GetBinContent(mt2bin_tmp);
+    }
   }
 
   //-----------------------------------
   //----- Zinv Estimate using DY ------
   //-----------------------------------
-  TH1D* h_zinvDY  = (TH1D*) f_zinvDY->Get(dir+"/hybridEstimate"); //the final hybrid estimate
-  TH1D* purityCard = (TH1D*) f_zinvDY->Get(dir+"/purityCard"); //purity histogram
-  TH1D* ratioCard  = (TH1D*) f_zinvDY->Get(dir+"/ratioCard"); //alpha histogram
-  TH1D* h_zinvDY_cryield = (TH1D*) f_zinvDY->Get(dir+"/CRyieldCard"); //CR yield histogram
-  if (h_zinvDY != 0) {
-    n_mt2bins = h_zinvDY->GetNbinsX();
-    n_zinvDY = h_zinvDY->GetBinContent(mt2bin);
-  }
-  //get mcstat from alpha histogram
-  //has additional uncertainties baked in from Zinvmaker
-  if (ratioCard != 0 && ratioCard->GetBinContent(mt2bin) != 0) 
-    err_zinvDY_mcstat = ratioCard->GetBinError(mt2bin)/ratioCard->GetBinContent(mt2bin);
-  if (h_zinvDY_cryield != 0) {
-    n_zinvDY_cr = round(h_zinvDY_cryield->GetBinContent(mt2bin)); 
-    //check if using inclusive templates by looking at content of CRyieldCard
-    //if all bins are not equal, not using inclusive templates
-    int crYieldFirstBin = -1;
-    for (int ibin = 1; ibin <  h_zinvDY_cryield->GetNbinsX(); ibin++) {
-      int thiscrYield = round(h_zinvDY_cryield->GetBinContent(ibin));
-      if (ibin == 1) crYieldFirstBin = round(h_zinvDY_cryield->GetBinContent(ibin));
-      if (crYieldFirstBin != thiscrYield) {
-	usingInclusiveTemplates = false;
-	break;
+
+  // Need this scoping of h_zinvDY for hybrid calculation to compile, but calculation 
+  // won't happen if dir_zinvDY doesn't exist (n_mt2bins and zinvDY_lastbin_hybrid 
+  // default values cause condition for hybrid calculation to happen to fail).
+  TH1D* h_zinvDY(0);
+  if (dir_zinvDY) {
+    h_zinvDY  = (TH1D*) f_zinvDY->Get(dir+"/hybridEstimate"); //the final hybrid estimate
+    TH1D* purityCard = (TH1D*) f_zinvDY->Get(dir+"/purityCard"); //purity histogram
+    TH1D* ratioCard  = (TH1D*) f_zinvDY->Get(dir+"/ratioCard"); //alpha histogram
+    TH1D* h_zinvDY_cryield = (TH1D*) f_zinvDY->Get(dir+"/CRyieldCard"); //CR yield histogram
+    if (h_zinvDY != 0) {
+      n_mt2bins = h_zinvDY->GetNbinsX();
+      n_zinvDY = h_zinvDY->GetBinContent(mt2bin);
+    }
+    //get mcstat from alpha histogram
+    //has additional uncertainties baked in from Zinvmaker
+    if (ratioCard != 0 && ratioCard->GetBinContent(mt2bin) != 0) 
+      err_zinvDY_mcstat = ratioCard->GetBinError(mt2bin)/ratioCard->GetBinContent(mt2bin);
+    if (h_zinvDY_cryield != 0) {
+      n_zinvDY_cr = round(h_zinvDY_cryield->GetBinContent(mt2bin)); 
+      //check if using inclusive templates by looking at content of CRyieldCard
+      //if all bins are not equal, not using inclusive templates
+      int crYieldFirstBin = -1;
+      for (int ibin = 1; ibin <  h_zinvDY_cryield->GetNbinsX(); ibin++) {
+	int thiscrYield = round(h_zinvDY_cryield->GetBinContent(ibin));
+	if (ibin == 1) crYieldFirstBin = round(h_zinvDY_cryield->GetBinContent(ibin));
+	if (crYieldFirstBin != thiscrYield) {
+	  usingInclusiveTemplates = false;
+	  break;
+	}
       }
     }
-  }
-  TH1D* h_zinvDY_alpha = (TH1D*) f_zinvDY->Get(dir+"/ratioCard");
-  if (h_zinvDY_alpha != 0) {
-    //multiply in purity histogram to get final alpha
-    if (purityCard != 0) {
-      zinvDY_purity = purityCard->GetBinContent(mt2bin);
-      h_zinvDY_alpha->Multiply(purityCard);
-      err_zinvDY_purity = purityCard->GetBinContent(mt2bin) > 0 ? purityCard->GetBinError(mt2bin)/purityCard->GetBinContent(mt2bin) : 0;
+    TH1D* h_zinvDY_alpha = (TH1D*) f_zinvDY->Get(dir+"/ratioCard");
+    if (h_zinvDY_alpha != 0) {
+      //multiply in purity histogram to get final alpha
+      if (purityCard != 0) {
+	zinvDY_purity = purityCard->GetBinContent(mt2bin);
+	h_zinvDY_alpha->Multiply(purityCard);
+	err_zinvDY_purity = purityCard->GetBinContent(mt2bin) > 0 ? purityCard->GetBinError(mt2bin)/purityCard->GetBinContent(mt2bin) : 0;
+      }
+      zinvDY_alpha = h_zinvDY_alpha->GetBinContent(mt2bin);
+      zinvDY_alpha_topological = h_zinvDY_alpha->Integral(0,-1);
     }
-    zinvDY_alpha = h_zinvDY_alpha->GetBinContent(mt2bin);
-    zinvDY_alpha_topological = h_zinvDY_alpha->Integral(0,-1);
+    TH1D* h_zinvDY_lastbin_hybrid = (TH1D*) f_zinvDY->Get(fullhistnameLastbinHybrid);
+    if (h_zinvDY_lastbin_hybrid != 0)
+      zinvDY_lastbin_hybrid = h_zinvDY_lastbin_hybrid->GetBinContent(1);
   }
-  TH1D* h_zinvDY_lastbin_hybrid = (TH1D*) f_zinvDY->Get(fullhistnameLastbinHybrid);
-  if (h_zinvDY_lastbin_hybrid != 0)
-    zinvDY_lastbin_hybrid = h_zinvDY_lastbin_hybrid->GetBinContent(1);
-
   
   float zllgamma_nj = 1., zllgamma_nb = 1., zllgamma_ht = 1., zllgamma_ht2 = 1., zllgamma_mt2 = 1.;
   TString notFound = "";
@@ -569,29 +612,36 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
     //cout<<"Corresponding Zll/Gamma uncertainties are: "<<zllgamma_nj<<", "<<zllgamma_nb<<", "<<zllgamma_ht<<", "<<zllgamma_mt2<<endl;
   }
 
- 
-  TH1D* h_qcd = (TH1D*) f_qcd->Get(fullhistname);
-  if (h_qcd != 0) n_qcd = h_qcd->GetBinContent(mt2bin);
-  //  if (n_qcd < 0.01) n_qcd = 0.01;
-  TH1D* h_qcd_cryield = (TH1D*) f_qcd->Get(fullhistnameCRyield);
-  if (h_qcd_cryield != 0) 
-    n_qcd_cr = round(h_qcd_cryield->GetBinContent(mt2bin));
-  TH1D* h_qcd_alpha = (TH1D*) f_qcd->Get(fullhistnameAlpha);
-  if (h_qcd_alpha != 0) {
-    qcd_alpha = h_qcd_alpha->GetBinContent(mt2bin);
-    err_qcd_alpha = h_qcd_alpha->GetBinError(mt2bin); // for 1j, 50%.  For multijet, not used
-  }
-  TH1D* h_qcd_fjrb = (TH1D*) f_qcd->Get(fullhistnameFJRB);
-  if (h_qcd_fjrb != 0) {
-    err_qcd_fjrb = h_qcd_fjrb->GetBinContent(mt2bin); // multijet only
-  }
-  TH1D* h_qcd_fitstat = (TH1D*) f_qcd->Get(fullhistnameFitStat);
-  if (h_qcd_fitstat != 0) {
-    err_qcd_fitstat = h_qcd_fitstat->GetBinContent(mt2bin); // multijet only
-  }
-  TH1D* h_qcd_fitsyst = (TH1D*) f_qcd->Get(fullhistnameFitSyst);
-  if (h_qcd_fitsyst != 0) {
-    err_qcd_fitsyst = h_qcd_fitsyst->GetBinContent(mt2bin); // multijet only
+  if (dir_qcd) {
+    TH1D* h_qcd = (TH1D*) f_qcd->Get(fullhistname);
+    if (h_qcd != 0) n_qcd = h_qcd->GetBinContent(mt2bin);
+
+    cout << topologicalR << endl;
+    cout << channel << endl;
+    h_qcd->Print("all");
+    cout << "n_qcd = " << n_qcd << endl;
+
+    //  if (n_qcd < 0.01) n_qcd = 0.01;
+    TH1D* h_qcd_cryield = (TH1D*) f_qcd->Get(fullhistnameCRyield);
+    if (h_qcd_cryield != 0) 
+      n_qcd_cr = round(h_qcd_cryield->GetBinContent(mt2bin));
+    TH1D* h_qcd_alpha = (TH1D*) f_qcd->Get(fullhistnameAlpha);
+    if (h_qcd_alpha != 0) {
+      qcd_alpha = h_qcd_alpha->GetBinContent(mt2bin);
+      err_qcd_alpha = h_qcd_alpha->GetBinError(mt2bin); // for 1j, 50%.  For multijet, not used
+    }
+    TH1D* h_qcd_fjrb = (TH1D*) f_qcd->Get(fullhistnameFJRB);
+    if (h_qcd_fjrb != 0) {
+      err_qcd_fjrb = h_qcd_fjrb->GetBinContent(mt2bin); // multijet only
+    }
+    TH1D* h_qcd_fitstat = (TH1D*) f_qcd->Get(fullhistnameFitStat);
+    if (h_qcd_fitstat != 0) {
+      err_qcd_fitstat = h_qcd_fitstat->GetBinContent(mt2bin); // multijet only
+    }
+    TH1D* h_qcd_fitsyst = (TH1D*) f_qcd->Get(fullhistnameFitSyst);
+    if (h_qcd_fitsyst != 0) {
+      err_qcd_fitsyst = h_qcd_fitsyst->GetBinContent(mt2bin); // multijet only
+    }
   }
   
   int n_syst = 0;
@@ -728,6 +778,8 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
 
   // in hybrid method, or normal extrapolation: shape uncertainty only for bins with MT2 extrapolation
   const float last_bin_relerr_zinvDY = 0.4;
+  // default value of n_mt2bins is 1, default of zinvDY_lastbin_hybrid is 1, 
+  // so the condition fails if no observation (ie if dir_zinv or dir_zinvDY don't exist)
   int n_extrap_bins_zinvDY = n_mt2bins - zinvDY_lastbin_hybrid;
   if (n_extrap_bins_zinvDY > 0 && mt2bin >= zinvDY_lastbin_hybrid) {
     if (mt2bin == zinvDY_lastbin_hybrid && n_zinvDY > 0.) {
@@ -905,6 +957,48 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
   ofstream ofile;
   ofile.open(cardname);
 
+  // Uncorrelate error if nonzero CR events and zero SR events
+  bool uncorr_zinvDY = n_zinvDY_cr > 0 && n_zinvDY == 0;
+  bool uncorr_lostlep = n_lostlep_cr > 0 && n_lostlep == 0;
+  bool uncorr_qcd = n_qcd_cr > 0 && n_qcd == 0;
+
+  // Set alpha to 2.0 if zero cr events and zero alpha
+  bool zero_zinvDY = zinvDY_alpha == 0.0 && n_zinvDY_cr == 0.0;
+  bool zero_lostlep = lostlep_alpha == 0.0 && n_lostlep_cr == 0.0;
+  bool zero_qcd = qcd_crstat == 0.0 && n_qcd_cr == 0.0;
+
+  // Allow ad hoc modification of counts and alphas by setting scale parameters.
+  // Set alphas = 0 to 2.0 (ad hoc) in certain cases 
+  float sig_scale = 1.0;
+  float n_sig_cor_recogenaverage_towrite=sig_scale * n_sig_cor_recogenaverage;
+  float scale = 1.0;
+  float n_zinvDY_towrite=scale*n_zinvDY;
+  float n_lostlep_towrite=scale*n_lostlep;
+  float n_qcd_towrite=scale*n_qcd;
+  // If alpha is 0 then set it to 2.0
+  float zinvDY_alpha_towrite = ( (uncorr_zinvDY || zero_zinvDY) ? 2.0 : zinvDY_alpha) * scale;
+  float lostlep_alpha_towrite = ( (uncorr_lostlep || zero_lostlep) ? 2.0 : lostlep_alpha) * scale;
+  float qcd_crstat_towrite = ( (uncorr_qcd || zero_qcd) ? 2.0 : qcd_crstat) * scale;
+
+  float n_zinvDY_cr_towrite = n_zinvDY_cr;  
+  if (uncorr_zinvDY) {
+    name_zinvDY_crstat += "_" + mt2_str;
+    n_zinvDY_cr_towrite = 0;
+  }
+  float n_lostlep_cr_towrite = n_lostlep_cr;  
+  if (uncorr_lostlep) {
+    name_lostlep_crstat += "_" + mt2_str;
+    n_lostlep_cr_towrite = 0;
+  }
+  float n_qcd_cr_towrite = n_qcd_cr;  
+  if (uncorr_qcd) {
+    name_qcd_crstat += "_" + mt2_str;
+    n_qcd_cr_towrite = 0;
+  }
+
+  cout << "n_qcd_towrite = " << n_qcd_towrite << endl;
+
+
   ofile <<  "imax 1  number of channels"                                                    << endl;
   ofile <<  "jmax 3  number of backgrounds"                                                 << endl;
   ofile <<  "kmax *"                                                                        << endl;
@@ -915,7 +1009,7 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
   ofile <<  Form("bin             %s   %s   %s   %s",channel.c_str(),channel.c_str(),channel.c_str(),channel.c_str()) << endl;
   ofile <<  "process          sig       zinv        llep      qcd"                                      << endl; 
   ofile <<  "process           0         1           2         3"                                      << endl;
-  if (doZinvFromDY) ofile <<  Form("rate            %.3f    %.3f      %.3f      %.3f",n_sig_cor_recogenaverage,n_zinvDY,n_lostlep,n_qcd) << endl;
+  if (doZinvFromDY) ofile <<  Form("rate            %.3f    %.3f      %.3f      %.3f",n_sig_cor_recogenaverage_towrite,n_zinvDY_towrite,n_lostlep_towrite,n_qcd_towrite) << endl;
   else ofile <<  Form("rate            %.3f    %.3f      %.3f      %.3f",n_sig_cor_recogenaverage,n_zinv,n_lostlep,n_qcd) << endl;
   ofile <<  "------------"                                                                  << endl;
  
@@ -937,7 +1031,7 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
 
   // ---- Zinv systs
   if (doZinvFromDY) {
-    ofile <<  Form("%s        gmN %.0f    -   %.5f   -   - ",name_zinvDY_crstat.Data(),n_zinvDY_cr,zinvDY_alpha)  << endl;
+    ofile <<  Form("%s        gmN %.0f    -   %.5f   -   - ",name_zinvDY_crstat.Data(),n_zinvDY_cr_towrite,zinvDY_alpha_towrite)  << endl;
     ofile <<  Form("%s        lnN    -   %.3f   -   - ",name_zinvDY_alphaErr.Data(),zinvDY_alphaErr)  << endl;
     ofile <<  Form("%s        lnN    -   %.3f   -   - ",name_zinvDY_purity.Data(),zinvDY_puritystat)  << endl;
     ofile <<  Form("%s        lnN    -   %.3f   -   - ",name_zinvDY_rsfof.Data(),zinvDY_rsfof)  << endl;
@@ -981,7 +1075,7 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
     if (!doZinvFromDY) ofile <<  Form("%s        lnN    -    -    %.3f    - ",name_lostlep_jec.Data(),lostlep_jec)  << endl;
     ofile <<  Form("%s        lnN    -    -    %.3f    - ",name_lostlep_renorm.Data(),lostlep_renorm)  << endl;
   }
-  ofile <<  Form("%s        gmN %.0f    -    -    %.5f     - ",name_lostlep_crstat.Data(),n_lostlep_cr,lostlep_alpha)  << endl;
+  ofile <<  Form("%s        gmN %.0f    -    -    %.5f     - ",name_lostlep_crstat.Data(),n_lostlep_cr_towrite,lostlep_alpha_towrite)  << endl;
   ofile <<  Form("%s        lnN    -    -    %.3f    - ",name_lostlep_mcstat.Data(),lostlep_mcstat)  << endl;
   if (n_mt2bins > 1 && mt2bin >= lostlep_lastbin_hybrid)
     ofile <<  Form("%s    lnN    -    -   %.3f     - ",name_lostlep_shape.Data(),lostlep_shape)  << endl;
@@ -998,7 +1092,7 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
   }
   
   // ---- QCD systs
-  ofile <<  Form("%s        gmN %.0f    -    -    -   %.5f",name_qcd_crstat.Data(),n_qcd_cr,qcd_crstat)  << endl;
+  ofile <<  Form("%s        gmN %.0f    -    -    -   %.5f",name_qcd_crstat.Data(),n_qcd_cr_towrite,qcd_crstat_towrite)  << endl;
   if (njets_LOW == 1) {
     ofile <<  Form("%s        lnN    -    -    -   %.3f",name_qcd_alphaerr.Data(),qcd_alphaerr)  << endl;
   } else {
@@ -1078,6 +1172,8 @@ int printCard( string dir_str , int mt2bin , string signal, string output_dir, i
 
 //_______________________________________________________________________________
 void cardMaker(string signal, string input_dir, string output_dir, bool isScan = false, bool doData = true){
+
+  gErrorIgnoreLevel=kError;
 
   // Benchmark
   TBenchmark *bmark = new TBenchmark();

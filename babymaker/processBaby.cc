@@ -196,6 +196,8 @@ int main(int argc, char **argv) {
 
   bool isFastsim = bool(infile.Contains("FSPremix") || infile.Contains("FastAsympt25ns") || infile.Contains("Spring16Fast"));
 
+  std::cout << "isFastsim? " << isFastsim << std::endl;
+
   bool isBadMiniAodV1 = bool(infile.Contains("V07-04-12_miniaodv1_FS"));
   
   //--------------------------------

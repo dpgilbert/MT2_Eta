@@ -1,2 +1,2 @@
-/home/users/fgolf/mt2/devel/MT2Analysis/QCDLooper/output/full2016
-/home/users/fgolf/mt2/devel/MT2Analysis/MT2looper/output/full2016
+/home/users/dpgilber/MT2AnalysisEdit/QCDLooper/output/full2016_PseudoJetEta
+/home/users/dpgilber/MT2AnalysisEdit/MT2looper/output/PseudoJetEta
