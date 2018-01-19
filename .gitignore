@@ -16,3 +16,4 @@ MyCode/*
 *.png
 *nohup*
 *.txt
+CMSSW*/*
