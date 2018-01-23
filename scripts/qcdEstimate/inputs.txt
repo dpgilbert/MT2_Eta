@@ -1,2 +1,5 @@
-/home/users/dpgilber/MT2AnalysisEdit/QCDLooper/output/full2016_PseudoJetEta
+/home/users/dpgilber/MT2AnalysisEdit/QCDLooper/output/debug
 /home/users/dpgilber/MT2AnalysisEdit/MT2looper/output/PseudoJetEta
+
+
+Note: too few events in debug file, so some dirs are missing, causing failure. Check that all dirs are present for main input....

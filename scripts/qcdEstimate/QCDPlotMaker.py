@@ -6,9 +6,20 @@ import numpy as np
 import ROOT
 
 def makeRbPlot(h_mc, h_data, nj_reg, outfile):
-    nj_reg = ["j2to3","j4to6","j7toInf","j2to6","j4toInf","j2toInf"].index(nj_reg)
 
-    nj_bounds = [(2,3),(4,6),(2,6),(7,"Inf"),(4,"Inf"),(2,"Inf")]
+    nj_list_pref = ["j2to3","j4to6","j7toInf","j2to6","j4toInf","j2toInf"]
+    nj_list = []
+    for name in nj_list_pref:
+        nj_list.append(name+"cent")
+        nj_list.append(name+"forw")
+
+    nj_bounds_tmp = [(2,3),(4,6),(2,6),(7,"Inf"),(4,"Inf"),(2,"Inf")]
+    nj_bounds = []
+    for bound in nj_bounds_tmp:
+        nj_bounds.append(bound)
+        nj_bounds.append(bound)
+
+    nj_reg = nj_list.index(nj_reg)
 
     h_mcerr = h_mc.Clone("h_mcerr")
 
@@ -56,10 +67,20 @@ def makeRbPlot(h_mc, h_data, nj_reg, outfile):
     
 
 def makeFjPlot(h_mc, h_data, ht_reg, outfile):
-    ht_reg = ["ht250to450","ht450to575","ht575to1000",
-              "ht1000to1500","ht1500toInf","ht1000toInf"].index(ht_reg)
 
-    ht_bounds = [(250,450),(450,575),(575,1000),(1000,1500),(1500,"Inf"),(1000,"Inf")]
+    ht_list_tmp = ["ht250to450","ht450to575","ht575to1000","ht1000to1500","ht1500toInf","ht1000toInf"]
+    ht_list = []
+    for name in ht_list_tmp:
+        ht_list.append(name+"forw")
+        ht_list.append(name+"cent")
+
+    ht_reg = ht_list.index(ht_reg)
+
+    ht_bounds_tmp = [(250,450),(450,575),(575,1000),(1000,1500),(1500,"Inf"),(1000,"Inf")]
+    ht_bounds = []
+    for bound in ht_bounds_tmp:
+        ht_bounds.append(bound)
+        ht_bounds.append(bound)
 
     h_mcerr = h_mc.Clone("h_mcerr")
 
@@ -107,10 +128,20 @@ def makeFjPlot(h_mc, h_data, ht_reg, outfile):
     
 
 def makeRphiPlot(h_all, h_qcd, fit, ht_reg, isData, outfile, fit_systUp=None, fit_systDown=None):
-    ht_reg = ["ht250to450","ht450to575","ht575to1000",
-              "ht1000to1500","ht1500toInf","ht1000toInf"].index(ht_reg)
 
-    ht_bounds = [(250,450),(450,575),(575,1000),(1000,1500),(1500,"Inf"),(1000,"Inf")]
+    ht_list_tmp = ["ht250to450","ht450to575","ht575to1000","ht1000to1500","ht1500toInf","ht1000toInf"]
+    ht_list = []
+    for name in ht_list_tmp:
+        ht_list.append(name+"forw")
+        ht_list.append(name+"cent")
+
+    ht_reg = ht_list.index(ht_reg)
+
+    ht_bounds_tmp = [(250,450),(450,575),(575,1000),(1000,1500),(1500,"Inf"),(1000,"Inf")]
+    ht_bounds = []
+    for bound in ht_bounds_tmp:
+        ht_bounds.append(bound)
+        ht_bounds.append(bound)
 
     # h_errBand = ROOT.TH1D("h_errBand","",294,30,1500)
     # h_errBand.SetFillColor(ROOT.kGray)

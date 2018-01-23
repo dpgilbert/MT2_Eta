@@ -142,38 +142,39 @@ void QCDLooper::SetSignalRegions(){
     string NJnames[6] = {"j2to3","j4to6","j7toInf", "j2to6", "j4toInf", "j2toInf"};
     int NJcuts[4] = {2,4,7,-1};
     for(unsigned int i=0; i<6; i++){
-        SR sr;
-        sr.SetName("rb_"+NJnames[i]+"cent");
-        sr.SetVar("ht",1000,-1); // put cut at ht 1000 to allow use of unprescaled trigger PFHT800
+        SR src;
+        src.SetName("rb_"+NJnames[i]+"cent");
+        src.SetVar("ht",1000,-1); // put cut at ht 1000 to allow use of unprescaled trigger PFHT800
         if (i < 3)
-          sr.SetVar("njets",NJcuts[i],NJcuts[i+1]);
+          src.SetVar("njets",NJcuts[i],NJcuts[i+1]);
         else if (i == 3)
-          sr.SetVar("njets",NJcuts[0],NJcuts[2]);
+          src.SetVar("njets",NJcuts[0],NJcuts[2]);
         else if (i == 4)
-          sr.SetVar("njets",NJcuts[1],NJcuts[3]);
+          src.SetVar("njets",NJcuts[1],NJcuts[3]);
         else if (i == 5)
-          sr.SetVar("njets",NJcuts[0],NJcuts[3]);
-        sr.SetVar("mt2",100,200);
-        sr.SetVar("deltaPhiMin",0,0.3);
-	sr.SetVar("PseudoJet1_eta",0,1.4);
-        SRVec_rb.push_back(sr);
-        outfile_->mkdir(sr.GetName().c_str());
+          src.SetVar("njets",NJcuts[0],NJcuts[3]);
+        src.SetVar("mt2",100,200);
+        src.SetVar("deltaPhiMin",0,0.3);
+	src.SetVar("PseudoJet1_eta",0,1.4);
+        SRVec_rb.push_back(src);
+        outfile_->mkdir(src.GetName().c_str());
 
-        sr.SetName("rb_"+NJnames[i]+"forw");
-        sr.SetVar("ht",1000,-1); // put cut at ht 1000 to allow use of unprescaled trigger PFHT800
+	SR srf;
+        srf.SetName("rb_"+NJnames[i]+"forw");
+        srf.SetVar("ht",1000,-1); // put cut at ht 1000 to allow use of unprescaled trigger PFHT800
         if (i < 3)
-          sr.SetVar("njets",NJcuts[i],NJcuts[i+1]);
+          srf.SetVar("njets",NJcuts[i],NJcuts[i+1]);
         else if (i == 3)
-          sr.SetVar("njets",NJcuts[0],NJcuts[2]);
+          srf.SetVar("njets",NJcuts[0],NJcuts[2]);
         else if (i == 4)
-          sr.SetVar("njets",NJcuts[1],NJcuts[3]);
+          srf.SetVar("njets",NJcuts[1],NJcuts[3]);
         else if (i == 5)
-          sr.SetVar("njets",NJcuts[0],NJcuts[3]);
-        sr.SetVar("mt2",100,200);
-        sr.SetVar("deltaPhiMin",0,0.3);
-	sr.SetVar("PseudoJet1_eta",1.4,-1);
-        SRVec_rb.push_back(sr);
-        outfile_->mkdir(sr.GetName().c_str());
+          srf.SetVar("njets",NJcuts[0],NJcuts[3]);
+        srf.SetVar("mt2",100,200);
+        srf.SetVar("deltaPhiMin",0,0.3);
+	srf.SetVar("PseudoJet1_eta",1.4,-1);
+        SRVec_rb.push_back(srf);
+        outfile_->mkdir(srf.GetName().c_str());
     }
 
 }
@@ -222,7 +223,7 @@ void QCDLooper::loop(TChain* chain, std::string output_name){
 
     // Event Loop
     int nEventsTree = tree->GetEntriesFast();
-    int maxEvents = 100;
+    int maxEvents = -1;
     maxEvents = maxEvents < 1 ? nEventsTree : min(nEventsTree,maxEvents);
     for( int event = 0; event < maxEvents; ++event) {
       
@@ -335,7 +336,7 @@ void QCDLooper::loop(TChain* chain, std::string output_name){
 	}
         if(SRVec_fj.at(i).PassesSelection(values)) {       
           fillHistosFj(SRVec_fj.at(i).srHistMap,SRVec_fj.at(i).GetName().c_str());
-	  cout << "Filled fj region " << SRVec_rphi.at(i).GetName().c_str() << " with values: " << endl;
+	  cout << "Filled fj region " << SRVec_fj.at(i).GetName().c_str() << " with values: " << endl;
 	  cout << "njets = " << values["njets"] << endl;
 	  cout << "ht = " << values["ht"] << endl;
 	  cout << "mt2 = " << values["mt2"] << endl;
@@ -345,15 +346,16 @@ void QCDLooper::loop(TChain* chain, std::string output_name){
 	}
       }
       for(unsigned int i=0; i<SRVec_rb.size(); i++){
-        if(SRVec_rb.at(i).PassesSelection(values))
+        if(SRVec_rb.at(i).PassesSelection(values)) {
           fillHistosRb(SRVec_rb.at(i).srHistMap,SRVec_rb.at(i).GetName().c_str());
-	  cout << "Filled Rb region " << SRVec_rphi.at(i).GetName().c_str() << " with values: " << endl;
+	  cout << "Filled Rb region " << SRVec_rb.at(i).GetName().c_str() << " with values: " << endl;
 	  cout << "njets = " << values["njets"] << endl;
 	  cout << "ht = " << values["ht"] << endl;
 	  cout << "mt2 = " << values["mt2"] << endl;
 	  cout << "deltaPhiMin = " << values["deltaPhiMin"] << endl;
 	  cout << "PseudoJet1_eta = " << values["PseudoJet1_eta"] << endl;
 	  cout << "PseudoJet1_eta upper limit = " << SRVec_rphi.at(i).GetUpperBound("PseudoJet1_eta") << endl;
+	}
       }
       
     }//end loop on events in a file

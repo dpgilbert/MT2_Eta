@@ -21,8 +21,17 @@ except:
 
 fin = ROOT.TFile(infile)
 
-ht_reg_names = ["ht250to450","ht450to575","ht575to1000","ht1000to1500","ht1500toInf","ht1000toInf"]
-nj_reg_names = ["j2to3","j4to6","j7toInf","j2to6","j4toInf","j2toInf"]
+ht_reg_names_tmp = ["ht250to450","ht450to575","ht575to1000","ht1000to1500","ht1500toInf","ht1000toInf"]
+nj_reg_names_tmp = ["j2to3","j4to6","j7toInf","j2to6","j4toInf","j2toInf"]
+
+ht_reg_names = []
+nj_reg_names = []
+for name in ht_reg_names_tmp:
+    ht_reg_names.append(name+"cent")
+    ht_reg_names.append(name+"forw")
+for name in nj_reg_names_tmp:
+    nj_reg_names.append(name+"cent")
+    nj_reg_names.append(name+"forw")
 
 ## r_phi
 for reg in ht_reg_names:
