@@ -221,8 +221,10 @@ void QCDLooper::loop(TChain* chain, std::string output_name){
     t.Init(tree);
 
     // Event Loop
-    unsigned int nEventsTree = tree->GetEntriesFast();
-    for( unsigned int event = 0; event < nEventsTree; ++event) {
+    int nEventsTree = tree->GetEntriesFast();
+    int maxEvents = 100;
+    maxEvents = maxEvents < 1 ? nEventsTree : min(nEventsTree,maxEvents);
+    for( int event = 0; event < maxEvents; ++event) {
       
       t.GetEntry(event);
 
@@ -319,16 +321,39 @@ void QCDLooper::loop(TChain* chain, std::string output_name){
       values["ht"]          = t.ht;
       values["mt2"]         = t.mt2;
       values["deltaPhiMin"] = t.deltaPhiMin;
-      values["PseudoJet1_eta"] = t.pseudoJet1_eta;
+      values["PseudoJet1_eta"] = fabs(t.pseudoJet1_eta);
       for(unsigned int i=0; i<SRVec_rphi.size(); i++){
-        if(SRVec_rphi.at(i).PassesSelection(values))
+        if(SRVec_rphi.at(i).PassesSelection(values)) {
           fillHistosRphi(SRVec_rphi.at(i).srHistMap,SRVec_rphi.at(i).GetName().c_str());
-        if(SRVec_fj.at(i).PassesSelection(values))
+	  cout << "Filled rphi region " << SRVec_rphi.at(i).GetName().c_str() << " with values: " << endl;	  
+	  cout << "njets = " << values["njets"] << endl;
+	  cout << "ht = " << values["ht"] << endl;
+	  cout << "mt2 = " << values["mt2"] << endl;
+	  cout << "deltaPhiMin = " << values["deltaPhiMin"] << endl;
+	  cout << "PseudoJet1_eta = " << values["PseudoJet1_eta"] << endl;
+	  cout << "PseudoJet1_eta upper limit = " << SRVec_rphi.at(i).GetUpperBound("PseudoJet1_eta") << endl;
+	}
+        if(SRVec_fj.at(i).PassesSelection(values)) {       
           fillHistosFj(SRVec_fj.at(i).srHistMap,SRVec_fj.at(i).GetName().c_str());
+	  cout << "Filled fj region " << SRVec_rphi.at(i).GetName().c_str() << " with values: " << endl;
+	  cout << "njets = " << values["njets"] << endl;
+	  cout << "ht = " << values["ht"] << endl;
+	  cout << "mt2 = " << values["mt2"] << endl;
+	  cout << "deltaPhiMin = " << values["deltaPhiMin"] << endl;
+	  cout << "PseudoJet1_eta = " << values["PseudoJet1_eta"] << endl;
+	  cout << "PseudoJet1_eta upper limit = " << SRVec_rphi.at(i).GetUpperBound("PseudoJet1_eta") << endl;
+	}
       }
       for(unsigned int i=0; i<SRVec_rb.size(); i++){
         if(SRVec_rb.at(i).PassesSelection(values))
           fillHistosRb(SRVec_rb.at(i).srHistMap,SRVec_rb.at(i).GetName().c_str());
+	  cout << "Filled Rb region " << SRVec_rphi.at(i).GetName().c_str() << " with values: " << endl;
+	  cout << "njets = " << values["njets"] << endl;
+	  cout << "ht = " << values["ht"] << endl;
+	  cout << "mt2 = " << values["mt2"] << endl;
+	  cout << "deltaPhiMin = " << values["deltaPhiMin"] << endl;
+	  cout << "PseudoJet1_eta = " << values["PseudoJet1_eta"] << endl;
+	  cout << "PseudoJet1_eta upper limit = " << SRVec_rphi.at(i).GetUpperBound("PseudoJet1_eta") << endl;
       }
       
     }//end loop on events in a file

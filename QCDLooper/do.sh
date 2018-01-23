@@ -1,10 +1,13 @@
+jobs
 #!/bin/bash
 
 make -j 8
 
-OUTDIR=output/full2016_PseudoJetEta
+#OUTDIR=output/full2016_PseudoJetEta
+OUTDIR=output/debug
 
-LOGDIR=logs_PseudoJetEta
+#LOGDIR=logs_PseudoJetEta
+LOGDIR=logs_debug
 
 mkdir -p ${OUTDIR}
 mkdir -p ${LOGDIR}
